@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery EasyUI 1.3 中文文档--数据表格和树形菜单[data and tree]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网上关于jQuery EasyUI最新版的中文文档比较少，特花了一些时间制作了这篇中文文档，贡献出来，希望对想学习和正在用的同学有帮助！">
+    <meta name="keywords"
+          content="jQuery EasyUI 1.3中文文档,jQuery EasyUI 1.3中文api,jQuery EasyUI 1.3在线文档，easyui data and tree">
+    <meta name="author" content="http://www.zi-han.net">
+    <!-- Le styles -->
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/assets/css/docs.css" rel="stylesheet">
+    <link href="docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script>var _hmt = _hmt||[];(function(){var hm=document.createElement("script");hm.src ="//hm.baidu.com/hm.js?8867273989ac579c211d99bc3e0d00dd";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="http://www.zi-han.net">作者博客</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="">
+                        <a href="base.html" rel="tooltip" data-placement="bottom" data-original-title="Base">基本</a>
+                    </li>
+                    <li class="">
+                        <a href="layout.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Layout">布局管理器</a>
+                    </li>
+                    <li class="">
+                        <a href="menu&button.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Menu and Button">菜单和按钮</a>
+                    </li>
+                    <li class="">
+                        <a href="form.html" rel="tooltip" data-placement="bottom" data-original-title="Form">表单</a>
+                    </li>
+                    <li class="">
+                        <a href="window.html" rel="tooltip" data-placement="bottom" data-original-title="Window">窗口</a>
+                    </li>
+                    <li class="active">
+                        <a href="datagrid&tree.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="DataGrid and Tree">数据表格和树形菜单</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>数据表格和树形菜单[Data and Tree]</h1>
+    </div>
+</header>
+
+
+<div class="container">
+
+<!-- Docs nav
+================================================== -->
+<div class="row">
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav">
+        <li><a href="#datagrid"><i class="icon-chevron-right"></i>数据表格</a></li>
+        <li><a href="#propertygrid"><i class="icon-chevron-right"></i>属性表格</a></li>
+        <li><a href="#tree"><i class="icon-chevron-right"></i>树形菜单</a></li>
+        <li><a href="#treegrid"><i class="icon-chevron-right"></i>树形表格</a></li>
+    </ul>
+</div>
+<div class="span9">
+
+<!-- Button Groups
+================================================== -->
+<section id="datagrid">
+<div class="page-header">
+    <h1>数据表格[datagrid]</h1>
+
+    <p>继承$.fn.panel.defaults，使用$.fn.datagrid.defaults重载默认值。</p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/datagrid.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+        <span class="btn-group" data-toggle="buttons-radio">
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/datagrid.html"><i
+                    class="icon-list"></i> 示例一</a>
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/datagrid2.html"><i
+                    class="icon-list"></i> 示例二</a>
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/datagrid3.html"><i
+                    class="icon-list"></i> 示例三</a>
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/datagrid4.html"><i
+                    class="icon-list"></i> 示例四</a>
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/datagrid5.html"><i
+                    class="icon-list"></i> 示例五</a>
+        </span>
+</div>
+<h4>依赖关系</h4>
+<ul>
+    <li><a href="layout.html#panel">控制面板</a></li>
+    <li><a href="base.html#resizable">缩放</a></li>
+    <li><a href="menu&button.html#linkbutton">链接按钮</a></li>
+    <li><a href="base.html#pagination">分页</a></li>
+</ul>
+<h4>使用方法：</h4>
+
+<p><pre class="prettyprint linenums">
+&lt;table id="tt"&gt;&lt;/table&gt;
+</pre>
+</p>
+<p><pre class="prettyprint linenums">
+$('#tt').datagrid({
+    url:'datagrid_data.json',
+    columns:[[
+        {field:'code',title:'Code',width:100},
+        {field:'name',title:'Name',width:100},
+        {field:'price',title:'Price',width:100,align:'right'}
+    ]]
+});
+</pre>
+</p>
+<h4>属性：</h4>
+<h5>数据表格属性</h5>
+
+<p>属性继承控制面板，以下是数据表格独有的属性。</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>columns（列）</td>
+        <td>array（数组）</td>
+        <td>数据表格列配置对象，查看列属性以获取更多细节。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>frozenColumns（固定列）</td>
+        <td>array（数组）</td>
+        <td>跟列属性一样，但是这些列固定在左边，不会滚动。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>fitColumns（自适应列宽）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将自动使列适应表格宽度以防止出现水平滚动。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>striped（显示条纹）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将交替显示行背景。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>method（方法）</td>
+        <td>string（字符串）</td>
+        <td>请求远程数据的方法类型。</td>
+        <td>post</td>
+    </tr>
+    <tr>
+        <td>nowrap（截取）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true，当数据长度超出列宽时将会自动截取。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>idField（id字段）</td>
+        <td>string（字符串）</td>
+        <td>表明该列是一个唯一列。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>url（超链接）</td>
+        <td>string（字符串）</td>
+        <td>一个用以从远程站点请求数据的超链接地址。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>loadMsg（载入时信息）</td>
+        <td>string（字符串）</td>
+        <td>当从远程站点载入数据时，显示的一条快捷信息。</td>
+        <td>Processing, please wait …</td>
+    </tr>
+    <tr>
+        <td>pagination（分页）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置true将在数据表格底部显示分页工具栏。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>rownumbers（行数）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将显示行数。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>singleSelect（单选模式）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将只允许选择一行。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>checkOnSelect</td>
+        <td>boolean（布尔型）</td>
+        <td>如果设置为 true，当用户点击一行的时候 checkbox checked(选择)/unchecked(取消选择)。 如果为false，当用户点击刚好在checkbox的时候，checkbox
+            checked(选择)/unchecked(取消选择)。<code>这个属性从1.3版本以后可用。</code></td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>selectOnCheck</td>
+        <td>boolean（布尔型）</td>
+        <td>如果设置为true，点击checkbox将永远选择这行。如果设置为false，选择一个行将不会选择checkbox。<code>这个属性从1.3版本以后可用。</code></td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>pagePosition</td>
+        <td>string（文本型）</td>
+        <td>定义分页工具栏的位置.可用值有： 'top'，'bottom'，'both'。<code>这个属性从1.3版本以后可用。</code></td>
+        <td>bottom</td>
+    </tr>
+    <tr>
+        <td>checkOnSelect</td>
+        <td>boolean（布尔型）</td>
+        <td>如果设置为true，点击checkbox将永远选择这行。如果设置为false，选择一个行将不会选择checkbox。<code>这个属性从1.3版本以后可用。</code></td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>pageNumber（当前页码）</td>
+        <td>number（数字）</td>
+        <td>当设置分页属性时，初始化分页码。</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>pageSize（每页记录数）</td>
+        <td>number（数字）</td>
+        <td>当设置分页属性时，初始化每页记录数。</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>pageList（可选择的每页记录数）</td>
+        <td>array</td>
+        <td>当设置分页属性时，初始化每页记录数列表。</td>
+        <td>[10,20,30,40,50]</td>
+    </tr>
+    <tr>
+        <td>queryParams（查询参数）</td>
+        <td>object（对象）</td>
+        <td>当请求远程数据时，发送的额外参数。</td>
+        <td>{}</td>
+    </tr>
+    <tr>
+        <td>sortName（默认排序）</td>
+        <td>string（字符串）</td>
+        <td>当数据表格初始化时以哪一列来排序。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>sortOrder（排序顺序）</td>
+        <td>string（字符串）</td>
+        <td>定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。</td>
+        <td>asc</td>
+    </tr>
+    <tr>
+        <td>remoteSort（远程排序）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否通过远程服务器对数据排序。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>showFooter（显示行底）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否显示行底（如果是做统计表格，这里可以显示总计等）。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>rowStyler（行样式）</td>
+        <td>function（函数）</td>
+        <td>返回样式，如：'background:red'，function有2个参数：<br>
+            index：行索引，从0开始.<br>
+            row：对应于该行记录的对象。
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>loadFilter（载入过滤器）</td>
+        <td>function（函数）</td>
+        <td>返回用以显示的已过滤数据，function有一个参数'data'表示原始数据，你可以将原始数据改变为规范的数据格式，该函数必须返回包含 'total'和'rows'属性的标准数据对象。</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>editors（编辑模式）</td>
+        <td>object（对象）</td>
+        <td>定义当编辑一行时的编辑模式。</td>
+        <td>predefined editors</td>
+    </tr>
+    <tr>
+        <td>view（视图）</td>
+        <td>object（对象）</td>
+        <td>定义数据表格的视图。</td>
+        <td>default view</td>
+    </tr>
+    </tbody>
+</table>
+<h5>列属性：</h5>
+
+<p>数据表格的列是一个对象数组，即这个对象中的元素也是一个数组（js中数组是对象）。 对象数组中的每一个元素都是可配置的对象，每个可配置对象定义一个列。示例代码：</p>
+
+<p><pre class="prettyprint linenums">
+columns:[[
+    {field:'itemid',title:'Item ID',rowspan:2,width:80,sortable:true},
+    {field:'productid',title:'Product ID',rowspan:2,width:80,sortable:true},
+    {title:'Item Details',colspan:4}
+],[
+    {field:'listprice',title:'List Price',width:80,align:'right',sortable:true},
+    {field:'unitcost',title:'Unit Cost',width:80,align:'right',sortable:true},
+    {field:'attr1',title:'Attribute',width:100},
+    {field:'status',title:'Status',width:60}
+]]
+</pre>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>title（标题）</td>
+        <td>string（字符串）</td>
+        <td>列标题。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>field（字段）</td>
+        <td>string（字符串）</td>
+        <td>列字段。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>width（宽度）</td>
+        <td>number（数字）</td>
+        <td>列宽。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>rowspan（跨行数）</td>
+        <td>number（数字）</td>
+        <td>表明一个单元格跨几行。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>colspan（跨列数）</td>
+        <td>number（数字）</td>
+        <td>表明一个单元格跨几列。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>align（对其方式）</td>
+        <td>string（字符串）</td>
+        <td>表明如何对其列数据，可选值：'left'，'right'，'center'。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>sortable（可排序）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true允许对该列排序。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>resizable（缩放）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true允许该列被缩放。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>hidden（隐藏）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将隐藏列。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>checkbox（复选框）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将显示复选框。</td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>formatter（格式化）</td>
+        <td>function（函数）</td>
+        <td>格式化单元格函数，有3个参数：<br>
+            value：字段的值。<br>
+            rowData：行数据。<br>
+            rowIndex：行索引。
+        </td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>styler（样式）</td>
+        <td>function（函数）</td>
+        <td>单元格样式函数，返回样式字符串装饰表格如'background:red'，function有3个参数：<br>
+            value：字段值。<br>
+            rowData：行数据。<br>
+            rowIndex：行索引。
+        </td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>sorter（排序器）</td>
+        <td>function（函数）</td>
+        <td>T自定义字段排序函数，有2个参数：<br>
+            a：该列的第一个值。<br>
+            b：该列的第二个值。
+        </td>
+        <td>undefined</td>
+    </tr>
+    <tr>
+        <td>editor（编辑器）</td>
+        <td>string,object（字符串，对象）</td>
+        <td>表明编辑类型。如果属性是字符串类型表示编辑类型，如果是对象则包含2个参数：<br>
+            type：字符串，编辑类型，可选值：text，textarea，checkbox，numberbox，validatebox，datebox，combobox，combotree。<br>
+            options：对象，对象于编辑类型的编辑器属性。
+        </td>
+        <td>undefined</td>
+    </tr>
+    </tbody>
+</table>
+<h5>编辑器</h5>
+
+<p>使用$.fn.datagrid.defaults.editors重载默认值。</p>
+
+<p>每个编辑器都有以下方法：</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>init</td>
+        <td>container, options</td>
+        <td>初始化编辑器并返回目标对象。</td>
+    </tr>
+    <tr>
+        <td>destroy</td>
+        <td>target</td>
+        <td>销毁编辑器。</td>
+    </tr>
+    <tr>
+        <td>getValue</td>
+        <td>target</td>
+        <td>获取编辑框的值。</td>
+    </tr>
+    <tr>
+        <td>setValue</td>
+        <td>target , value</td>
+        <td>设置编辑框的值。</td>
+    </tr>
+    <tr>
+        <td>resize</td>
+        <td>target , width</td>
+        <td>调整编辑器</td>
+    </tr>
+    </tbody>
+</table>
+<p>例如，如下代码将定义一个文本编辑器：</p>
+
+<p><pre class="prettyprint linenums">
+$.extend($.fn.datagrid.defaults.editors, {
+    text: {
+        init: function(container, options){
+            var input = $('&lt;input type="text" class="datagrid-editable-input"&gt;').appendTo(container);
+            return input;
+        },
+        getValue: function(target){
+            return $(target).val();
+        },
+        setValue: function(target, value){
+            $(target).val(value);
+        },
+        resize: function(target, width){
+            var input = $(target);
+            if ($.boxModel == true){
+                input.width(width - (input.outerWidth() - input.width()));
+            } else {
+                input.width(width);
+            }
+        }
+    }
+});
+</pre>
+</p>
+<h4>事件：</h4>
+
+<p>事件继承控制面板，以下是数据表格独有的属性。</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>onLoadSuccess</td>
+        <td>data</td>
+        <td>当数据载入成功时触发。</td>
+    </tr>
+    <tr>
+        <td>onLoadError</td>
+        <td>none</td>
+        <td>当载入远程数据发生错误时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeLoad</td>
+        <td>param</td>
+        <td>在请求载入数据之前触发，如果返回false将取消载入。</td>
+    </tr>
+
+    <tr>
+        <td>onClickRow</td>
+        <td>rowIndex, rowData</td>
+        <td>当用户点击行时触发，参数如下：<br>
+            rowIndex：被点击的行索引，从0开始。<br>
+            rowData：对应于被点击的行的记录。
+        </td>
+    </tr>
+    <tr>
+        <td>onDblClickRow</td>
+        <td>rowIndex, rowData</td>
+        <td>当用户双击一行时触发，参数如下：<br>
+            rowIndex：被点击的行索引，从0开始。<br>
+            rowData：对应于被点击的行的记录。
+        </td>
+    </tr>
+    <tr>
+        <td>onClickCell</td>
+        <td>rowIndex, field, value</td>
+        <td>当用户点击单元格时触发。</td>
+    </tr>
+    <tr>
+        <td>onDblClickCell</td>
+        <td>rowIndex, field, value</td>
+        <td>当用户双击单元格时触发。</td>
+    </tr>
+    <tr>
+        <td>onSortColumn</td>
+        <td>sort, order</td>
+        <td>当用户对列排序时触发，参数如下：<br>
+            sort：排序字段名称。<br>
+            order：排序顺序。
+        </td>
+    </tr>
+    <tr>
+        <td>onResizeColumn</td>
+        <td>field, width</td>
+        <td>当用户调整列宽时触发。</td>
+    </tr>
+    <tr>
+        <td>onSelect</td>
+        <td>rowIndex, rowData</td>
+        <td>当用户选择一行是触发，参数如下：<br>
+            rowIndex：被选择的行索引，从0开始。<br>
+            rowData：对应于被选择行的记录。
+        </td>
+    </tr>
+    <tr>
+        <td>onUnselect</td>
+        <td>rowIndex, rowData</td>
+        <td>当用户取消选择一行时触发，参数如下：<br>
+            rowIndex：被取消选择的行索引，从0开始。<br>
+            rowData：对应于被取消选择行的记录。
+        </td>
+    </tr>
+    <tr>
+        <td>onSelectAll</td>
+        <td>rows</td>
+        <td>当用户选择所有行时触发。</td>
+    </tr>
+    <tr>
+        <td>onUnselectAll</td>
+        <td>rowIndex,rowData</td>
+        <td>当用户选中一行的时候触发,参数包含：<br>
+            rowIndex：选中行下标, 起始值 0<br>
+            rowData：这个记录代表的是选中行的数据<br>
+            <code>这个事件从1.3版本以后可用。</code></td>
+    </tr>
+    <tr>
+        <td>onUncheck</td>
+        <td>rowIndex,rowData</td>
+        <td>当用户取消选中一行的时候触发, 参数包含：<br>
+            rowIndex： 取消选中行下标，起始值0<br>
+            rowData： 这个记录代表的是取消选中行的数据<br>
+            <code>这个事件从1.3版本以后可用。</code></td>
+    </tr>
+    <tr>
+        <td>onCheckAll</td>
+        <td>rows</td>
+        <td>当用户选中所有行时触发。<code>这个事件从1.3版本以后可用。</code></td>
+    </tr>
+    <tr>
+        <td>onUncheckAll</td>
+        <td>rows</td>
+        <td>当用户取消选中所有行时触发。<code>这个事件从1.3版本以后可用。</code></td>
+    </tr>
+    <tr>
+        <td>checkRow</td>
+        <td>index</td>
+        <td>选中一行，行的下标的起始值是0。<code>这个事件从1.3版本以后可用。</code></td>
+    </tr>
+    <tr>
+        <td>uncheckRow</td>
+        <td>index</td>
+        <td>取消选择一行，行的下标起始值0。<code>这个事件从1.3版本以后可用。</code></td>
+    </tr>
+    <tr>
+        <td>onCheck</td>
+        <td>rows</td>
+        <td>当用户取消选择所有行时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeEdit</td>
+        <td>rowIndex, rowData</td>
+        <td>当用户开始编辑一行时触发，参数如下：<br>
+            rowIndex：正在编辑的行索引，从0开始。<br>
+            rowData：对应于正在编辑的行的记录。
+        </td>
+    </tr>
+    <tr>
+        <td>onAfterEdit</td>
+        <td>rowIndex, rowData, changes</td>
+        <td>当用户编辑完成时触发，参数如下：<br>
+            rowIndex：正在编辑的行索引，从0开始。<br>
+            rowData：对应于正在编辑的行的记录。<br>
+            changes：被改变的字段内容，对应方式为字段：值。
+        </td>
+    </tr>
+    <tr>
+        <td>onCancelEdit</td>
+        <td>rowIndex, rowData</td>
+        <td>当用户取消编辑行时触发，参数如下：<br>
+            rowIndex：正在编辑的行索引，从0开始。<br>
+            rowData：对应于正在编辑的行的记录。
+        </td>
+    </tr>
+    <tr>
+        <td>onHeaderContextMenu</td>
+        <td>e, field</td>
+        <td>当数据表格的列标题被鼠标右键单击时触发。</td>
+    </tr>
+    <tr>
+        <td>onRowContextMenu</td>
+        <td>e, rowIndex, rowData</td>
+        <td>当一行被鼠标右键单击时触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+    <th>名称</th>
+    <th>参数</th>
+    <th>描述</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+    <td>options</td>
+    <td>none</td>
+    <td>返回属性对象。</td>
+</tr>
+<tr>
+    <td>getPager</td>
+    <td>none</td>
+    <td>返回页面对象。</td>
+</tr>
+<tr>
+    <td>getPanel</td>
+    <td>none</td>
+    <td>返回控制面板对象。</td>
+</tr>
+<tr>
+    <td>getColumnFields</td>
+    <td>frozen</td>
+    <td>返回列字段，如果设置了frozen属性为true，将返回固定列的字段名。</td>
+</tr>
+<tr>
+    <td>getColumnOption</td>
+    <td>field</td>
+    <td>返回特定的列属性。</td>
+</tr>
+<tr>
+    <td>resize</td>
+    <td>param</td>
+    <td>缩放和布局。</td>
+</tr>
+
+<tr>
+    <td>load</td>
+    <td>param</td>
+    <td>载入并显示第一页的记录，如果传递了'param'参数，它将会覆盖查询参数属性的值。</td>
+</tr>
+<tr>
+    <td>reload</td>
+    <td>param</td>
+    <td>重载记录，跟'load'方法一样但是重载的是当前页的记录而非第一页。</td>
+</tr>
+
+<tr>
+    <td>reloadFooter</td>
+    <td>footer</td>
+    <td>重载行底记录。</td>
+</tr>
+<tr>
+    <td>loading</td>
+    <td>none</td>
+    <td>显示载入状态。</td>
+</tr>
+
+<tr>
+    <td>loaded</td>
+    <td>none</td>
+    <td>隐藏载入状态。</td>
+</tr>
+<tr>
+    <td>fitColumns</td>
+    <td>none</td>
+    <td>让列宽自动适应数据表格的宽度。</td>
+</tr>
+<tr>
+    <td>fixColumnSize</td>
+    <td>none</td>
+    <td>固定列尺寸。</td>
+</tr>
+<tr>
+    <td>fixRowHeight</td>
+    <td>index</td>
+    <td>固定特定列的高度。</td>
+</tr>
+<tr>
+    <td>autoSizeColumn</td>
+    <td>field</td>
+    <td>允许用户调整列宽以适合内容。<code>这个方法从1.3版本以后可用。</code></td>
+</tr>
+<tr>
+    <td>loadData</td>
+    <td>data</td>
+    <td>载入本地数据，旧记录将被移除。</td>
+</tr>
+<tr>
+    <td>getData</td>
+    <td>none</td>
+    <td>返回已载入数据。</td>
+</tr>
+<tr>
+    <td>getRows</td>
+    <td>none</td>
+    <td>返回当前页的记录。</td>
+</tr>
+<tr>
+    <td>getFooterRows</td>
+    <td>none</td>
+    <td>返回行底记录。</td>
+</tr>
+<tr>
+    <td>getRowIndex</td>
+    <td>row</td>
+    <td>返回指定行的索引，row参数可以是行记录或者是一个id字段的值。</td>
+</tr>
+<tr>
+    <td>getChecked</td>
+    <td>none</td>
+    <td>返回checkbox被选中的所有行数据。<code>这个方法从1.3版本以后可用。</code></td>
+</tr>
+<tr>
+    <td>getSelected</td>
+    <td>none</td>
+    <td>返回第一个被选择的行记录或null。</td>
+</tr>
+<tr>
+    <td>getSelections</td>
+    <td>none</td>
+    <td>返回所有被选择的行，当没有记录被选择时，将返回一个空数组。</td>
+</tr>
+<tr>
+    <td>clearSelections</td>
+    <td>none</td>
+    <td>取消所有的已选择项。</td>
+</tr>
+<tr>
+    <td>selectAll</td>
+    <td>none</td>
+    <td>全选。</td>
+</tr>
+<tr>
+    <td>unselectAll</td>
+    <td>none</td>
+    <td>取消全选。</td>
+</tr>
+<tr>
+    <td>selectRow</td>
+    <td>index</td>
+    <td>选择一行，行索引从0开始。</td>
+</tr>
+<tr>
+    <td>selectRecord</td>
+    <td>idValue</td>
+    <td>通过传递id参数来选择一行。</td>
+</tr>
+<tr>
+    <td>unselectRow</td>
+    <td>index</td>
+    <td>取消选择一行。</td>
+</tr>
+<tr>
+    <td>beginEdit</td>
+    <td>index</td>
+    <td>开始编辑一行。</td>
+</tr>
+<tr>
+    <td>endEdit</td>
+    <td>index</td>
+    <td>结束编辑。</td>
+</tr>
+<tr>
+    <td>cancelEdit</td>
+    <td>index</td>
+    <td>取消编辑。</td>
+</tr>
+<tr>
+    <td>getEditors</td>
+    <td>index</td>
+    <td>获取指定行的编辑器，每个编辑器有如下属性：<br>
+        actions：编辑器可以做的行为。<br>
+        target：目标编辑器jQuery对象。<br>
+        field：字段名。<br>
+        type：编辑器类型。
+    </td>
+</tr>
+<tr>
+    <td>getEditor</td>
+    <td>options</td>
+    <td>获取特定的编辑器，options参数有2个属性：<br>
+        index：行索引。<br>
+        field:字段名。
+    </td>
+</tr>
+<tr>
+    <td>refreshRow</td>
+    <td>index</td>
+    <td>刷新一行。</td>
+</tr>
+<tr>
+    <td>validateRow</td>
+    <td>index</td>
+    <td>校验指定的行，如果有效返回true。</td>
+</tr>
+<tr>
+    <td>updateRow</td>
+    <td>param</td>
+    <td>更新指定的行，param参数包含如下属性：<br>
+        index：要更新的行索引。<br>
+        row：新的行数据。
+    </td>
+</tr>
+<tr>
+    <td>appendRow</td>
+    <td>row</td>
+    <td>添加一行。</td>
+</tr>
+<tr>
+    <td>insertRow</td>
+    <td>param</td>
+    <td>插入一个新行，param参数包含如下属性：<br>
+        index：要插入的行索引，如果没有定义则在最后面添加一个新行。<br>
+        row：行数据。
+    </td>
+</tr>
+<tr>
+    <td>deleteRow</td>
+    <td>index</td>
+    <td>删除一行。</td>
+</tr>
+<tr>
+    <td>getChanges</td>
+    <td>type</td>
+    <td>获取从最后一次提交开始的被修改的所有行，type参数表明修改的类型，可选值：inserted，deleted，updated等 。当没有传递type参数时，返回所有被修改的行。</td>
+</tr>
+<tr>
+    <td>acceptChanges</td>
+    <td>none</td>
+    <td>提交所有修改的数据，提交后的数据将不能再修改或者回滚。</td>
+</tr>
+<tr>
+    <td>rejectChanges</td>
+    <td>none</td>
+    <td>回滚所有被删除的行。</td>
+</tr>
+<tr>
+    <td>mergeCells</td>
+    <td>options</td>
+    <td>合并单元格，options参数包含如下属性：<br>
+        index：行索引。<br>
+        field：字段名。<br>
+        rowspan：整合单元格要跨的行数。<br>
+        colspan：整合单元格要跨的列数。
+    </td>
+</tr>
+<tr>
+    <td>showColumn</td>
+    <td>field</td>
+    <td>显示特定的列。</td>
+</tr>
+<tr>
+    <td>hideColumn</td>
+    <td>field</td>
+    <td>隐藏特定的列。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="propertygrid">
+    <div class="page-header">
+        <h1>属性表格[propertygrid]</h1>
+
+        <p>继承$.fn.datagrid.defaults，使用$.fn.propertygrid.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/propertygrid.html" class="autoheight" width="100%"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>依赖关系</h4>
+    <ul>
+        <li><a href="#datagrid">数据表格</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;table id="pg"&gt;&lt;/table&gt;
+</pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#pg').propertygrid({
+    url:'propertygrid_data.json',
+    showGroup:true
+});
+</pre>
+    </p>
+    <h4>属性：</h4>
+
+    <p>属性继承数据表格，以下是属性表格独有的属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>showGroup（显示分组）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示属性分组。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>groupField（分组字段）</td>
+            <td>string（字符串）</td>
+            <td>定义要分组的字段名称。</td>
+            <td>group</td>
+        </tr>
+        <tr>
+            <td>groupFormatter（分组格式）</td>
+            <td>function（函数）</td>
+            <td>定义如何格式化分组中的值。</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+</section>
+<section id="tree">
+<div class="page-header">
+    <h1>树形菜单[tree]</h1>
+
+    <p>使用$.fn.tree.defaults重载默认值。</p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/tree.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+        <span class="btn-group" data-toggle="buttons-radio">
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/tree.html"><i
+                    class="icon-list"></i> 示例一</a>
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/tree2.html"><i
+                    class="icon-list"></i> 示例二</a>
+        </span>
+</div>
+<h4>依赖关系</h4>
+<ul>
+    <li><a href="base.html#draggable">一般拖动</a></li>
+    <li><a href="base.html#droppable">拖动至容器</a></li>
+</ul>
+<h4>使用方法：</h4>
+
+<p>树形菜单可以用&lt;ul&gt;标签定义，它可以定义叶子节点和子节点，代码示例如下：</p>
+
+<p><pre class="prettyprint linenums">
+&lt;ul id="tt"&gt;
+    &lt;li&gt;
+        &lt;span&gt;Folder&lt;/span&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;span&gt;Sub Folder 1&lt;/span&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;
+                        &lt;span&gt;&lt;a href="#"&gt;File 11&lt;/a&gt;&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;span&gt;File 12&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;span&gt;File 13&lt;/span&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;span&gt;File 2&lt;/span&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;span&gt;File 3&lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;span&gt;File21&lt;/span&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+</p>
+<p>也可以用不带&lt;li&gt;的&lt;ul&gt;标签来定义：</p>
+
+<p><pre class="prettyprint linenums">
+&lt;ul id="tt"&gt;&lt;/ul&gt;
+</pre>
+</p>
+<p><pre class="prettyprint linenums">
+$('#tt').tree({
+    url:'tree_data.json'
+});
+</pre>
+</p>
+<h5>树形菜单的数据格式：</h5>
+
+<p>每个节点都拥有以下属性：</p>
+<ul>
+    <li>id：节点id，对载入远程数据很重要。</li>
+    <li>text：显示在节点的文本。</li>
+    <li>state：节点状态，'open' or 'closed'，默认为'open'。当设置为'closed'时，拥有子节点的节点将会从远程站点载入它们。</li>
+    <li>checked：表明节点是否被选择。</li>
+    <li>attributes：可以为节点添加的自定义属性。</li>
+    <li>children：子节点，必须用数组定义。</li>
+</ul>
+<p>示例代码：</p>
+
+<p><pre class="prettyprint linenums">
+[{
+    "id":1,
+    "text":"Folder1",
+    "iconCls":"icon-save",
+    "children":[{
+        "text":"File1",
+        "checked":true
+    },{
+        "text":"Books",
+        "state":"open",
+        "attributes":{
+            "url":"/demo/book/abc",
+            "price":100
+        },
+        "children":[{
+            "text":"PhotoShop",
+            "checked":true
+        },{
+            "id": 8,
+            "text":"Sub Bookds",
+            "state":"closed"
+        }]
+    }]
+},{
+    "text":"Languages",
+    "state":"closed",
+    "children":[{
+        "text":"Java"
+    },{
+        "text":"C#"
+    }]
+}]
+</pre>
+</p>
+<h4>属性：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>url（超链接）</td>
+        <td>string（字符串）</td>
+        <td>用以载入远程数据的超链接地址。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>method（方法）</td>
+        <td>string（字符串）</td>
+        <td>获取数据的HTTP方法。</td>
+        <td>post</td>
+    </tr>
+    <tr>
+        <td>animate（动画）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义当节点打开或关闭时是否显示动画效果。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>checkbox（复选框）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否在每个节点之前显示复选框。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>cascadeCheck（级联选择）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否支持级联选择。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>onlyLeafCheck（只选叶子节点）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否只在叶子节点之前显示复选框。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>dnd（拖放）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否支持拖放。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>data（数据）</td>
+        <td>array（数组）</td>
+        <td>将被载入的节点数据。</td>
+        <td>null</td>
+    </tr>
+    </tbody>
+</table>
+<h4>事件：</h4>
+
+<p>多数事件回调函数都有'node'参数，该参数包含如下属性：</p>
+<ul>
+    <li>id：节点的唯一标识。</li>
+    <li>text：显示在节点上的文本。</li>
+    <li>checked：节点是否被选择。</li>
+    <li>attributes：节点的自定义属性。</li>
+    <li>target：目标DOM对象。</li>
+</ul>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>onClick</td>
+        <td>node</td>
+        <td>当用户点击节点时触发，node参数包含如下属性：<br>
+            id：节点id。<br>
+            text：显示在节点上的文本。<br>
+            checked：节点是否被选择。<br>
+            attributes：节点的自定义属性。<br>
+            target：被点击的目标DOM对象。
+        </td>
+    </tr>
+    <tr>
+        <td>onDblClick</td>
+        <td>node</td>
+        <td>当用户双击节点时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeLoad</td>
+        <td>node, param</td>
+        <td>在请求载入数据之前触发，返回false将取消载入。</td>
+    </tr>
+    <tr>
+        <td>onLoadSuccess</td>
+        <td>node, data</td>
+        <td>当数据载入成功时触发。</td>
+    </tr>
+    <tr>
+        <td>onLoadError</td>
+        <td>arguments</td>
+        <td>当数据载入失败时触发，arguments参数跟jQuery.ajax的'error'函数一样。</td>
+    </tr>
+    <tr>
+        <td>onBeforeExpand</td>
+        <td>node</td>
+        <td>在节点打开之前触发，返回false将取消打开。</td>
+    </tr>
+    <tr>
+        <td>onExpand</td>
+        <td>node</td>
+        <td>在节点被打开时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeCollapse</td>
+        <td>node</td>
+        <td>在节点被关闭之前触发，返回false将取消关闭。</td>
+    </tr>
+    <tr>
+        <td>onCollapse</td>
+        <td>node</td>
+        <td>当节点被关闭时触发。</td>
+    </tr>
+    <tr>
+        <td>onCheck</td>
+        <td>node, checked</td>
+        <td>当用户点击复选框时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeSelect</td>
+        <td>node</td>
+        <td>在节点被选择之前触发，返回false将取消选择。</td>
+    </tr>
+    <tr>
+        <td>onSelect</td>
+        <td>node</td>
+        <td>当节点被选择时触发。</td>
+    </tr>
+    <tr>
+        <td>onContextMenu</td>
+        <td>e, node</td>
+        <td>当节点被鼠标右键点击时触发。</td>
+    </tr>
+    <tr>
+        <td>onDrop</td>
+        <td>target, source, point</td>
+        <td>当节点位置被（拖动）更换时触发。<br>
+            target：DOM对象，需要被拖动动的目标节点。<br>
+            source：原始节点。<br>
+            point：指明拖动方式，可选值：'append'，'top'或者'bottom'。
+        </td>
+    </tr>
+    <tr>
+        <td>onBeforeEdit</td>
+        <td>node</td>
+        <td>在编辑节点之前触发。</td>
+    </tr>
+    <tr>
+        <td>onAfterEdit</td>
+        <td>node</td>
+        <td>在编辑节点之后触发。</td>
+    </tr>
+    <tr>
+        <td>onCancelEdit</td>
+        <td>node</td>
+        <td>当取消编辑时触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>options</td>
+        <td>none</td>
+        <td>返回树形菜单属性对象。</td>
+    </tr>
+    <tr>
+        <td>loadData</td>
+        <td>data</td>
+        <td>载入树形菜单数据。</td>
+    </tr>
+    <tr>
+        <td>getNode</td>
+        <td>target</td>
+        <td>获取特定的节点对象。</td>
+    </tr>
+    <tr>
+        <td>getData</td>
+        <td>target</td>
+        <td>获取特定的节点数据，包括它的子节点。</td>
+    </tr>
+    <tr>
+        <td>reload</td>
+        <td>target</td>
+        <td>重新载入树形菜单数据。</td>
+    </tr>
+    <tr>
+        <td>getRoot</td>
+        <td>none</td>
+        <td>获取根节点，返回节点对象。</td>
+    </tr>
+    <tr>
+        <td>getRoots</td>
+        <td>none</td>
+        <td>获取根节点，返回节点数组。</td>
+    </tr>
+    <tr>
+        <td>getParent</td>
+        <td>target</td>
+        <td>获取父节点，target是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>getChildren</td>
+        <td>target</td>
+        <td>获取子节点，target参数是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>getChecked</td>
+        <td>none</td>
+        <td>获取所有被选择的节点。</td>
+    </tr>
+    <tr>
+        <td>getSelected</td>
+        <td>none</td>
+        <td>获取被选择的节点并返回，如果没有节点被选择则返回null。</td>
+    </tr>
+    <tr>
+        <td>isLeaf</td>
+        <td>target</td>
+        <td>判断指定的节点是否是叶子节点，target参数是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>find</td>
+        <td>id</td>
+        <td>查找指定的节点并返回节点对象。</td>
+    </tr>
+    <tr>
+        <td>select</td>
+        <td>target</td>
+        <td>选择一个节点，target参数是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>check</td>
+        <td>target</td>
+        <td>设置指定的节点为已选择状态。</td>
+    </tr>
+    <tr>
+        <td>uncheck</td>
+        <td>target</td>
+        <td>设置指定的节点为未选择状态。&lt;</td>
+    </tr>
+    <tr>
+        <td>collapse</td>
+        <td>target</td>
+        <td>关闭节点，target参数是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>expand</td>
+        <td>target</td>
+        <td>打开节点，target参数是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>collapseAll</td>
+        <td>target</td>
+        <td>关闭所有的节点。</td>
+    </tr>
+    <tr>
+        <td>expandAll</td>
+        <td>target</td>
+        <td>打开所有的节点。</td>
+    </tr>
+    <tr>
+        <td>expandTo</td>
+        <td>target</td>
+        <td>打开从根节点到指定节点之间的所有节点。</td>
+    </tr>
+    <tr>
+        <td>append</td>
+        <td>param</td>
+        <td>添加若干子节点到一个父节点，param参数有2个属性：<br>
+            parent：DOM对象，将要被添加子节点的父节点，如果未指定，子节点将被添加至根节点。<br>
+            data：数组，节点数据。
+        </td>
+    </tr>
+    <tr>
+        <td>toggle</td>
+        <td>target</td>
+        <td>打开或关闭节点的触发器，target参数是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>insert</td>
+        <td>param</td>
+        <td>在一个指定节点之前或之后插入节点，'param'参数包含如下属性：<br>
+            before：DOM对象，在某个节点之前插入。<br>
+            after: DOM对象，在某个节点之后插入。<br>
+            data：对象，节点数据。
+        </td>
+    </tr>
+    <tr>
+        <td>remove</td>
+        <td>target</td>
+        <td>移除一个节点和它的子节点，target参数是一个节点DOM对象。</td>
+    </tr>
+    <tr>
+        <td>pop</td>
+        <td>target</td>
+        <td>移除一个节点和它的子节点，该方法跟remove方法一样，不同的是它将返回被移除的节点数据。</td>
+    </tr>
+    <tr>
+        <td>update</td>
+        <td>param</td>
+        <td>更新指定的节点，param参数有如下属性：<br>
+            target(DOM对象，将被更新的目标节点)，id，text，iconCls，checked等。
+        </td>
+    </tr>
+    <tr>
+        <td>enableDnd</td>
+        <td>none</td>
+        <td>启用拖动特性。</td>
+    </tr>
+    <tr>
+        <td>disableDnd</td>
+        <td>none</td>
+        <td>禁用拖动特性。</td>
+    </tr>
+    <tr>
+        <td>beginEdit</td>
+        <td>nodeEl</td>
+        <td>开始编辑节点。</td>
+    </tr>
+    <tr>
+        <td>endEdit</td>
+        <td>nodeEl</td>
+        <td>结束编辑节点。</td>
+    </tr>
+    <tr>
+        <td>cancelEdit</td>
+        <td>nodeEl</td>
+        <td>取消编辑节点。</td>
+    </tr>
+    </tbody>
+</table>
+</section>
+<section id="treegrid">
+<div class="page-header">
+    <h1>树形表格[treegrid]</h1>
+
+    <p>继承$.fn.datagrid.defaults，使用$.fn.treegrid.defaults重载默认值。</p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/tree.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+        <span class="btn-group" data-toggle="buttons-radio">
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/tree.html"><i
+                    class="icon-list"></i> 示例一</a>
+            <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/tree2.html"><i
+                    class="icon-list"></i> 示例二</a>
+        </span>
+</div>
+<h4>依赖关系</h4>
+<ul>
+    <li><a href="#datagrid">数据表格</a></li>
+</ul>
+<h4>使用方法：</h4>
+
+<p><pre class="prettyprint linenums">
+&lt;table id="tt"&gt;&lt;/table&gt;
+</pre>
+</p>
+<p><pre class="prettyprint linenums">
+$('#tt').treegrid({
+    url:'treegrid_data.json',
+    treeField:'name',
+    columns:[[
+        {title:'Task Name',field:'name',width:180},
+        {field:'persons',title:'Persons',width:60,align:'right'},
+        {field:'begin',title:'Begin Date',width:80},
+        {field:'end',title:'End Date',width:80}
+    ]]
+});
+</pre>
+</p>
+
+<h4>属性：</h4>
+
+<p>属性继承数据表格，以下是树形表格独有的树形。</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>treeField（树形字段）</td>
+        <td>string（字符串）</td>
+        <td>定义作为树节点的字段。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>animate（动画）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义当打开或关闭节点时是否显示动画效果。</td>
+        <td>false</td>
+    </tr>
+    </tbody>
+</table>
+<h4>事件：</h4>
+
+<p>事件继承数据表格，以下是树形表格的独有事件。</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>onClickRow</td>
+        <td>row</td>
+        <td>当用户点击节点时触发 。</td>
+    </tr>
+    <tr>
+        <td>onDblClickRow</td>
+        <td>row</td>
+        <td>当用户双击节点时触发 。</td>
+    </tr>
+    <tr>
+        <td>onBeforeLoad</td>
+        <td>row, param</td>
+        <td>在请求载入数据之前触发，返回false将取消载入。</td>
+    </tr>
+    <tr>
+        <td>onLoadSuccess</td>
+        <td>row, data</td>
+        <td>当数据载入成功时触发。</td>
+    </tr>
+    <tr>
+        <td>onLoadError</td>
+        <td>arguments</td>
+        <td>当数据载入失败时触发，arguments参数和jQuery.ajax的'error'函数一样。</td>
+    </tr>
+    <tr>
+        <td>onBeforeExpand</td>
+        <td>row</td>
+        <td>在节点打开之前触发 ，返回false将取消打开。</td>
+    </tr>
+    <tr>
+        <td>onExpand</td>
+        <td>row</td>
+        <td>当节点打开时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeCollapse</td>
+        <td>row</td>
+        <td>在节点关闭之前触发，返回false将取消关闭。</td>
+    </tr>
+    <tr>
+        <td>onCollapse</td>
+        <td>row</td>
+        <td>当节点关闭时触发。</td>
+    </tr>
+    <tr>
+        <td>onContextMenu</td>
+        <td>e, row</td>
+        <td>当节点被鼠标右键点击时触发 。</td>
+    </tr>
+    <tr>
+        <td>onBeforeEdit</td>
+        <td>row</td>
+        <td>当用户开始编辑节点时触发。</td>
+    </tr>
+    <tr>
+        <td>onAfterEdit</td>
+        <td>row,changes</td>
+        <td> 当用户结束编辑时触发。</td>
+    </tr>
+    <tr>
+        <td>onCancelEdit</td>
+        <td>row</td>
+        <td>当用户取消编辑节点时触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>options</td>
+        <td>none</td>
+        <td>返回树形表格的属性对象。</td>
+    </tr>
+    <tr>
+        <td>resize</td>
+        <td>options</td>
+        <td>设置树形表格的大小，options包含2个属性：<br>
+            width：新的树形表格宽度<br>
+            height：新的树形表格高度。
+        </td>
+    </tr>
+    <tr>
+        <td>fixRowHeight</td>
+        <td>id</td>
+        <td>固定特定行的高。</td>
+    </tr>
+    <tr>
+        <td>loadData</td>
+        <td>data</td>
+        <td>载入树形表格数据。</td>
+    </tr>
+    <tr>
+        <td>reload</td>
+        <td>id</td>
+        <td>重新载入树形表格数据。</td>
+    </tr>
+    <tr>
+        <td>reloadFooter</td>
+        <td>footer</td>
+        <td>重新载入树形表格的行底数据。</td>
+    </tr>
+    <tr>
+        <td>getData</td>
+        <td>none</td>
+        <td>获取已载入的数据。</td>
+    </tr>
+    <tr>
+        <td>getFooterRows</td>
+        <td>none</td>
+        <td>获取行底数据。</td>
+    </tr>
+    <tr>
+        <td>getRoot</td>
+        <td>none</td>
+        <td>获取根节点，返回节点对象。</td>
+    </tr>
+    <tr>
+        <td>getRoots</td>
+        <td>none</td>
+        <td>获取根节点，返回节点数组。</td>
+    </tr>
+    <tr>
+        <td>getParent</td>
+        <td>id</td>
+        <td>获取父节点。</td>
+    </tr>
+    <tr>
+        <td>getChildren</td>
+        <td>id</td>
+        <td>获取子节点。</td>
+    </tr>
+    <tr>
+        <td>getSelected</td>
+        <td>none</td>
+        <td>获取被选择节点并返回，如果没有节点被选择则返回null。</td>
+    </tr>
+    <tr>
+        <td>getSelections</td>
+        <td>none</td>
+        <td>获取所有被选择的节点。</td>
+    </tr>
+    <tr>
+        <td>getLevel</td>
+        <td>id</td>
+        <td>获取指定的节点的层级。</td>
+    </tr>
+    <tr>
+        <td>find</td>
+        <td>id</td>
+        <td>查找指定的节点并返回节点数据。</td>
+    </tr>
+    <tr>
+        <td>select</td>
+        <td>id</td>
+        <td>选择一个节点。</td>
+    </tr>
+    <tr>
+        <td>unselect</td>
+        <td>id</td>
+        <td>取消选择一个节点。</td>
+    </tr>
+    <tr>
+        <td>selectAll</td>
+        <td>none</td>
+        <td>选择所有的节点。</td>
+    </tr>
+    <tr>
+        <td>unselectAll</td>
+        <td>none</td>
+        <td>取消选择所有的节点。</td>
+    </tr>
+    <tr>
+        <td>collapse</td>
+        <td>id</td>
+        <td>关闭节点。</td>
+    </tr>
+    <tr>
+        <td>expand</td>
+        <td>id</td>
+        <td>打开节点。</td>
+    </tr>
+    <tr>
+        <td>collapseAll</td>
+        <td>id</td>
+        <td>关闭所有节点。</td>
+    </tr>
+    <tr>
+        <td>expandAll</td>
+        <td>id</td>
+        <td>打开所有节点。</td>
+    </tr>
+    <tr>
+        <td>expandTo</td>
+        <td>id</td>
+        <td>打开从根节点到指定节点直接的所有节点。</td>
+    </tr>
+    <tr>
+        <td>toggle</td>
+        <td>id</td>
+        <td>打开或关闭节点的触发器。</td>
+    </tr>
+    <tr>
+        <td>append</td>
+        <td>param</td>
+        <td>添加若干子节点到一个父节点，'param'参数包含如下属性：<br>
+            parent：DOM对象，将要被添加子节点的父节点，如果未指定，子节点将被添加至根节点。<br>
+            data：数组，节点数据。
+        </td>
+    </tr>
+    <tr>
+        <td>remove</td>
+        <td>id</td>
+        <td>移除一个节点和它的子节点。</td>
+    </tr>
+    <tr>
+        <td>refresh</td>
+        <td>id</td>
+        <td>属性指定的节点。</td>
+    </tr>
+    <tr>
+        <td>beginEdit</td>
+        <td>id</td>
+        <td>开始编辑节点。</td>
+    </tr>
+    <tr>
+        <td>endEdit</td>
+        <td>id</td>
+        <td>结束编辑节点。</td>
+    </tr>
+    <tr>
+        <td>cancelEdit</td>
+        <td>id</td>
+        <td>取消编辑节点。</td>
+    </tr>
+    <tr>
+        <td>getEditors</td>
+        <td>id</td>
+        <td>获取指定行的编辑器，每个编辑器都有如下属性：<br>
+            actions：编辑器可以做的行为。<br>
+            target：目标编辑器jQuery对象。<br>
+            field：字段名。<br>
+            type：编辑类型。
+        </td>
+    </tr>
+    <tr>
+        <td>getEditor</td>
+        <td>options</td>
+        <td>获取指定的编辑器，options包含2个属性：<br>
+            id：行节点 id。<br>
+            field：字段名。
+        </td>
+    </tr>
+    </tbody>
+</table>
+</section>
+</div>
+</div>
+</div>
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="bs-docs-social">
+        <div class="container">
+            <ul class="bs-docs-social-buttons">
+                <li><a href="http://weibo.com/atzihan">新浪微博</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=62">联系方式</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=75">留言</a></li>
+                <li><a href="http://www.zi-han.net/?feed=rss2">RSS</a></li>
+                <li><a target="_blank"
+                       href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=i@zi-han.net">E-Mail</a>
+                </li>
+                <li>疏漏之处，请不吝斧正！</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="docs/assets/js/jquery.js"></script>
+<script src="docs/assets/js/google-code-prettify/prettify.js"></script>
+<script src="docs/assets/js/bootstrap-modal.js"></script>
+<script src="docs/assets/js/bootstrap-scrollspy.js"></script>
+<script src="docs/assets/js/bootstrap-tooltip.js"></script>
+<script src="docs/assets/js/bootstrap-popover.js"></script>
+<script src="docs/assets/js/bootstrap-button.js"></script>
+<script src="docs/assets/js/bootstrap-carousel.js"></script>
+<script src="docs/assets/js/bootstrap-affix.js"></script>
+<script src="docs/assets/js/application.js"></script>
+<script src="docs/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery EasyUI 1.3 中文文档--首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网上关于jQuery EasyUI最新版的中文文档比较少，特花了一些时间制作了这篇中文文档，贡献出来，希望对想学习和正在用的同学有帮助！">
+    <meta name="keywords" content="jQuery EasyUI 1.3中文文档,jQuery EasyUI 1.3中文api,jQuery EasyUI 1.3在线文档">
+    <meta name="author" content="http://www.zi-han.net">
+    <!-- Le styles -->
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/assets/css/docs.css" rel="stylesheet">
+    <link href="docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script>var _hmt = _hmt||[];(function(){var hm=document.createElement("script");hm.src ="//hm.baidu.com/hm.js?8867273989ac579c211d99bc3e0d00dd";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="http://www.zi-han.net">作者博客</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="">
+                        <a href="base.html" rel="tooltip" data-placement="bottom" data-original-title="Base">基本</a>
+                    </li>
+                    <li class="">
+                        <a href="layout.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Layout">布局管理器</a>
+                    </li>
+                    <li class="">
+                        <a href="menu&button.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Menu and Button">菜单和按钮</a>
+                    </li>
+                    <li class="">
+                        <a href="form.html" rel="tooltip" data-placement="bottom" data-original-title="Form">表单</a>
+                    </li>
+                    <li class="">
+                        <a href="window.html" rel="tooltip" data-placement="bottom" data-original-title="Window">窗口</a>
+                    </li>
+                    <li class="">
+                        <a href="datagrid&tree.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="DataGrid and Tree">数据表格和树形菜单</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron masthead">
+    <div class="container">
+        <h1>jQuery EasyUI 1.3 中文文档</h1>
+
+        <p>jQuery EasyUI 框架帮助你轻松建立站点。</p>
+
+        <p>
+            <a href="base.html" target="_blank" class="btn btn-success btn-large">查看文档</a>
+            <a href="http://www.jeasyui.com/" target="_blank" class="btn btn-primary btn-large">访问jQuery EasyUI官方网站</a>
+        </p>
+        <ul class="masthead-links">
+            <li><a href="http://www.zi-han.net">作者博客</a></li>
+            <li>Version 1.3.0</li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="bs-docs-example bs-docs-bug tooltip-demo">
+        <ol>
+            <li>combogrid： 设置为远程查询模式下时，'queryParams' 的参数不能发送到服务器。固定。</li>
+            <li>combotree： 下拉面板上的树节点不能选中时调用 '清除' 的方法。固定。</li>
+            <li>datetimebox： 'showSeconds' 属性设置为 false，则不能隐藏秒信息。固定。</li>
+            <li>datagrid： 调用 'mergeCells' 方法不能自动调整大小合并的单元格时标头隐藏的。固定。</li>
+            <li>dialog： 无法刷新设置高速缓存通过 ajax，内容虚假和加载数据。固定。</li>
+        </ol>
+    </div>
+    <div class="bs-docs-example bs-docs-new tooltip-demo">
+        <ul style="list-style: none;">
+            <li><i class="icon-thumbs-up"></i> HTML5 数据选项属性是可用于申报所有的自定义选项，包括属性和事件的组件。</li>
+            <li><i class="icon-thumbs-up"></i> 提供更详细的资料。</li>
+            <li><i class="icon-thumbs-up"></i> panel： 防止面板的身体上的脚本运行两次。</li>
+            <li><i class="icon-thumbs-up"></i> accordion: 添加 'getPanelIndex' 的方法。</li>
+            <li><i class="icon-thumbs-up"></i> accordion： 工具可以添加面板接头。</li>
+            <li><i class="icon-thumbs-up"></i> datetimebox： 添加 'timeSeparator' 选项允许用户定义的时间分隔符。</li>
+            <li><i class="icon-thumbs-up"></i> pagination： 添加 '刷新' 和 '选择' 的方法。</li>
+            <li><i class="icon-thumbs-up"></i> datagrid： 自动调整列宽以适合内容时未定义列的宽度。</li>
+            <li><i class="icon-thumbs-up"></i> datagrid： 双击来自动调整大小的列的右边框上的列的列中的内容。</li>
+            <li><i class="icon-thumbs-up"></i> datagrid： 添加允许用户调整列宽以适合内容的 'autoSizeColumn' 方法。</li>
+            <li><i class="icon-thumbs-up"></i> datagrid： 添加 'getChecked' 的方法，以获取所有行凡已签复选框。</li>
+            <li><i class="icon-thumbs-up"></i> datagrid： 添加 'selectOnCheck' 和 'checkOnSelect' 属性和一些检查的方法，以提高行的选择。</li>
+            <li><i class="icon-thumbs-up"></i> datagrid： 添加 'pagePosition' 属性，以允许用户显示寻呼机栏顶部、 底部或网格的这两个地方。</li>
+            <li><i class="icon-thumbs-up"></i> datagrid： 支持缓冲区视图和虚拟滚动视图以显示大量的分页没有记录。</li>
+            <li><i class="icon-thumbs-up"></i> tabs: 添加 'disableTab' 和 'enableTab' 的方法，以允许用户禁用或启用标签面板。</li>
+        </ul>
+    </div>
+</div>
+<footer class="footer">
+    <div class="bs-docs-social">
+        <div class="container">
+            <ul class="bs-docs-social-buttons">
+                <li><a href="http://weibo.com/atzihan">新浪微博</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=62">联系方式</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=75">留言</a></li>
+                <li><a href="http://www.zi-han.net/?feed=rss2">RSS</a></li>
+                <li><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=i@zi-han.net">E-Mail</a></li>
+                <li>疏漏之处，请不吝斧正！</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="docs/assets/js/jquery.js"></script>
+<script src="docs/assets/js/bootstrap-tooltip.js"></script>
+<script src="docs/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery EasyUI 1.3 中文文档--布局[layout]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网上关于jQuery EasyUI最新版的中文文档比较少，特花了一些时间制作了这篇中文文档，贡献出来，希望对想学习和正在用的同学有帮助！">
+    <meta name="keywords" content="jQuery EasyUI 1.3中文文档,jQuery EasyUI 1.3中文api,jQuery EasyUI 1.3在线文档，easyui layout">
+    <meta name="author" content="http://www.zi-han.net">
+    <!-- Le styles -->
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/assets/css/docs.css" rel="stylesheet">
+    <link href="docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script>var _hmt = _hmt||[];(function(){var hm=document.createElement("script");hm.src ="//hm.baidu.com/hm.js?8867273989ac579c211d99bc3e0d00dd";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="http://www.zi-han.net">作者博客</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="">
+                        <a href="base.html" rel="tooltip" data-placement="bottom" data-original-title="Base">基本</a>
+                    </li>
+                    <li class="active">
+                        <a href="layout.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Layout">布局管理器</a>
+                    </li>
+                    <li class="">
+                        <a href="menu&button.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Menu and Button">菜单和按钮</a>
+                    </li>
+                    <li class="">
+                        <a href="form.html" rel="tooltip" data-placement="bottom" data-original-title="Form">表单</a>
+                    </li>
+                    <li class="">
+                        <a href="window.html" rel="tooltip" data-placement="bottom" data-original-title="Window">窗口</a>
+                    </li>
+                    <li class="">
+                        <a href="datagrid&tree.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="DataGrid and Tree">数据表格和树形菜单</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>布局(Layout)</h1>
+    </div>
+</header>
+
+
+<div class="container">
+
+<!-- Docs nav
+================================================== -->
+<div class="row">
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav">
+        <li><a href="#panel"><i class="icon-chevron-right"></i>控制面板</a></li>
+        <li><a href="#tabs"><i class="icon-chevron-right"></i>选项卡</a></li>
+        <li><a href="#accordion"><i class="icon-chevron-right"></i>可伸缩面板</a></li>
+        <li><a href="#layout"><i class="icon-chevron-right"></i>布局面板</a></li>
+    </ul>
+</div>
+<div class="span9">
+
+<!-- Button Groups
+================================================== -->
+<section id="panel">
+<div class="page-header">
+    <h1>控制面板[Panel]</h1>
+
+    <p>使用$.fn.panel.defaults重载默认值。</p>
+
+    <p class="alert alert-info">
+        panel是使用最为其他内容的一个容器，是一个用于构建其他组件的基础组件，例如layout，tabs，accordion，等等。也提供内置的collapsible(可折叠的)，
+        closable(可关闭的)，maximizable(可最大化)，minimizable(可最小化的) 行为，和一些自定义行为，panel可以很容易的嵌入网页的任何位置。
+    </p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/panel.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+                <span class="btn-group" data-toggle="buttons-radio">
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/panel.html"><i
+                            class="icon-list"></i> 示例一</a>
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/panel2.html"><i
+                            class="icon-list"></i> 示例二</a>
+                </span>
+</div>
+<h4>使用方法：</h4>
+<h5>创建控制面板</h5>
+
+<p>1. 使用标签创建控制面板</p>
+
+<p>使用标签创建控制面板十分简单，只须要对&lt;div&gt;标签引用'easyui-panel'类。</p>
+
+<p><pre class="prettyprint linenums">
+&lt;div id="p" class="easyui-panel" title="My Panel"  style="width:500px;height:150px;padding:10px;background:#fafafa;"  data-options="iconCls:'icon-save',closable:true,collapsible:true,minimizable:true,maximizable:true"&gt;
+&lt;p&gt;panel content.&lt;/p&gt;
+&lt;p&gt;panel content.&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+</p>
+<p>2. 使用脚本创建控制面板</p>
+
+<p>下面的代码将创建一个工具栏在右上方的控制面板。</p>
+
+<p><pre class="prettyprint linenums">
+&lt;div id="p" style="padding:10px;"&gt;
+    &lt;p>panel content.&lt;/p&gt;
+    &lt;p>panel content.&lt;/p&gt;
+&lt;/div&gt;
+$('#p').panel({
+  width:500,
+  height:150,
+  title: 'My Panel',
+  tools: [{
+    iconCls:'icon-add',
+    handler:function(){alert('new')}
+  },{
+    iconCls:'icon-save',
+    handler:function(){alert('save')}
+  }]
+});
+</pre>
+</p>
+<h5>移动控制面板</h5>
+
+<p>调用'move'方法可以将控制面板移动到一个新的位置。</p>
+
+<p><pre class="prettyprint linenums">
+$('#p').panel('move',{
+  left:100,
+  top:100
+});
+</pre>
+</p>
+<h5>载入内容</h5>
+
+<p>下面的代码将使用ajax载入控制面板内容并且在载入成功时显示信息。</p>
+
+<p><pre class="prettyprint linenums">
+$('#p').panel({
+    href:'content_url.php',
+    onLoad:function(){
+        alert('loaded successfully');
+    }
+});  </pre>
+</p>
+<h4>属性：</h4>
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+    <th>名称</th>
+    <th>类型</th>
+    <th>描述</th>
+    <th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>id</td>
+    <td>string（字符串）</td>
+    <td>当前pannel的id属性。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>title（标题）</td>
+    <td>string（字符串）</td>
+    <td>显示在控制面板顶部的标题文本。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>iconCls（图标CSS类）</td>
+    <td>string（字符串）</td>
+    <td>在控制面板标题前显示一个16x16大小图标的CSS类。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>width（宽度）</td>
+    <td>number（数字）</td>
+    <td>设置控制面板的宽度。</td>
+    <td>auto</td>
+</tr>
+<tr>
+    <td>height（高度）</td>
+    <td>number（数字）</td>
+    <td>设置控制面板的高度。</td>
+    <td>auto</td>
+</tr>
+<tr>
+    <td>left（左边距）</td>
+    <td>number（数字）</td>
+    <td>设置控制面板的左边距。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>top（顶边距）</td>
+    <td>number（数字）</td>
+    <td>设置控制面板的顶边距。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>cls（类）</td>
+    <td>string（字符串）</td>
+    <td>对控制面板引用一个CSS类。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>headerCls（头部css类）</td>
+    <td>string（字符串）</td>
+    <td>对控制面板头部引用一个CSS类。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>bodyCls（主体类）</td>
+    <td>string（字符串）</td>
+    <td>对控制面板主体引用一个CSS类。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>style（样式）</td>
+    <td>object（对象）</td>
+    <td>给控制面板添加一个自定义的样式。
+<pre class="prettyprint linenums">
+&lt;div class="easyui-panel" style="width:200px;
+    height:100px"  data-options="style:{borderWidth:2}"&gt;
+&lt;/div&gt;
+</pre>
+    </td>
+    <td>{}</td>
+</tr>
+<tr>
+    <td>fit(铺满浏览器)</td>
+    <td>boolean（布尔型）</td>
+    <td>设置为true时，控制面板的大小将铺满它所在的容器（浏览器）。
+<pre class="prettyprint linenums">
+&lt;div style="width:200px;height:100px;padding:5px"&gt;
+    &lt;div class="easyui-panel" style="width:200px;height:100px"
+         data-options="fit:true,border:false"&gt;
+        Embedded Panel
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>border（边框）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义是否显示控制面板边框。</td>
+    <td>true</td>
+</tr>
+<tr>
+    <td>doSize（调整大小）</td>
+    <td>boolean（布尔型）</td>
+    <td>如果设置为true，在控制面板被创建时将被重置大小并且自动布局。</td>
+    <td>true</td>
+</tr>
+<tr>
+    <td>noheader（无头部）</td>
+    <td>boolean（布尔型）</td>
+    <td>如果设置为true，控制面板头部将不被创建。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>content（内容）</td>
+    <td>string（字符串）</td>
+    <td>控制面板主体的内容。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>collapsible（可折叠）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义是否显示可折叠按钮。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>minimizable（最小化）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义是否显示最小化按钮。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>maximizable（最大化）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义是否显示最大化按钮。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>closable（关闭）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义是否显示关闭按钮。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>tools（工具栏）</td>
+    <td>array（数组）</td>
+    <td>自定义工具栏，每一个工具都可以包含2个属性：图标类 和句柄。</td>
+    <td>[]</td>
+</tr>
+<tr>
+    <td>collapsed（已折叠）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义控制面板初始化时是否折叠。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>minimized（已最小化）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义控制面板初始化时是否最小化。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>maximized（已最大化）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义控制面板初始化时是否最大化。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>closed（已关闭）</td>
+    <td>boolean（布尔型）</td>
+    <td>定义控制面板初始化时是否关闭。</td>
+    <td>false</td>
+</tr>
+<tr>
+    <td>href（超链接）</td>
+    <td>string（字符串）</td>
+    <td>载入远程数据的超链接，载入的数据将显示在控制面板中。</td>
+    <td>null</td>
+</tr>
+<tr>
+    <td>cache（缓存）</td>
+    <td>boolean（布尔型）</td>
+    <td>如果设置为true，从超链接载入的数据将被缓存。</td>
+    <td>true</td>
+</tr>
+<tr>
+    <td>loadingMessage（载入时信息）</td>
+    <td>string（字符串）</td>
+    <td>在正在载入远程数据时显示在控制面板中的信息。</td>
+    <td>Loading…</td>
+</tr>
+<tr>
+    <td>extractor（提取器）</td>
+    <td>function（函数）</td>
+    <td>定义如何从ajax返回值中提取内容,返回被提取的数据。
+
+<pre class="prettyprint linenums">
+extractor: function(data){
+	var pattern = /&lt;body[^&gt;]*&gt;((.|[\n\r])*)&lt;\/body&gt;/im;
+	var matches = pattern.exec(data);
+	if (matches){
+		return matches[1];	// only extract body content
+	} else {
+		return data;
+	}
+}
+</pre>
+    </td>
+    <td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<h4>事件：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>onLoad</td>
+        <td>none</td>
+        <td>在远程数据被载入时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeOpen</td>
+        <td>none</td>
+        <td>在控制面板被打开之前触发，返回false将停止打开。</td>
+    </tr>
+    <tr>
+        <td>onOpen</td>
+        <td>none</td>
+        <td>在控制面板被打开之后触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeClose</td>
+        <td>none</td>
+        <td>在控制面板被关闭之前触发，返回false将取消关闭。</td>
+    </tr>
+    <tr>
+        <td>onClose</td>
+        <td>none</td>
+        <td>在控制面板被关闭后触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeDestroy</td>
+        <td>none</td>
+        <td>在控制面板被注销前触发，返回false将取消注销。</td>
+    </tr>
+    <tr>
+        <td>onDestroy</td>
+        <td>none</td>
+        <td>在控制面板被注销后触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeCollapse</td>
+        <td>none</td>
+        <td>在控制面板被折叠之前触发，返回false将停止折叠。</td>
+    </tr>
+    <tr>
+        <td>onCollapse</td>
+        <td>none</td>
+        <td>在控制面板被折叠之后触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeExpand</td>
+        <td>none</td>
+        <td>在控制面板被扩展之前触发，返回false将停止扩展（这里应该是指扩展区域，宽、高等）。</td>
+    </tr>
+    <tr>
+        <td>onExpand</td>
+        <td>none</td>
+        <td>在控制面板被扩展之后触发。</td>
+    </tr>
+    <tr>
+        <td>onResize</td>
+        <td>width, height</td>
+        <td>在控制面板被缩放后触发。<br>
+            width： 新的控制面板宽度<br>
+            height：新的控制面板高度
+        </td>
+    </tr>
+    <tr>
+        <td>onMove</td>
+        <td>left,top</td>
+        <td>在控制面板被移动后触发。<br>
+            left：新的控制面板左边距<br>
+            top：新的控制面板顶边距
+        </td>
+    </tr>
+    <tr>
+        <td>onMaximize</td>
+        <td>none</td>
+        <td>在控制面板被最大化后触发</td>
+    </tr>
+    <tr>
+        <td>onRestore</td>
+        <td>none</td>
+        <td>在控制面板被重置为初始大小后触发。</td>
+    </tr>
+    <tr>
+        <td>onMinimize</td>
+        <td>none</td>
+        <td>在控制面板被最小化后触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>options</td>
+        <td>none</td>
+        <td>返回选项属性。</td>
+    </tr>
+    <tr>
+        <td>panel</td>
+        <td>none</td>
+        <td>返回控制面板对象。</td>
+    </tr>
+    <tr>
+        <td>header</td>
+        <td>none</td>
+        <td>返回控制面板头对象。</td>
+    </tr>
+    <tr>
+        <td>body</td>
+        <td>none</td>
+        <td>返回控制面板主体对象。</td>
+    </tr>
+    <tr>
+        <td>setTitle</td>
+        <td>title</td>
+        <td>设置控制面板头部的标题文本。</td>
+    </tr>
+    <tr>
+        <td>open</td>
+        <td>forceOpen</td>
+        <td>当参数forceOpen设置为true时，控制面板将被打开，不受onBeforeOpen回调函数的约束。</td>
+    </tr>
+    <tr>
+        <td>close</td>
+        <td>forceClose</td>
+        <td>当参数forceClose设置为true时, 控制面板将被打开，不受onBeforeClose回调函数的约束。</td>
+    </tr>
+    <tr>
+        <td>destroy</td>
+        <td>forceDestroy</td>
+        <td>当参数forceDestroy设置为true时,控制面板将被打开，不受onBeforeDestroy回调函数的约束。</td>
+    </tr>
+    <tr>
+        <td>refresh</td>
+        <td>href</td>
+        <td>当href属性被设置时，刷新控制面板以载入远程数据。</td>
+    </tr>
+    <tr>
+        <td>resize</td>
+        <td>options</td>
+        <td>这是控制面板的尺寸并且进行布局。options对象包含以下2个属性:<br>
+            width： 新的控制面板宽度<br>
+            height： 新的控制面板高度<br>
+            left： 新的控制面板左边距<br>
+            top： 新的控制面板顶边距
+        </td>
+    </tr>
+    <tr>
+        <td>move</td>
+        <td>options</td>
+        <td>移动控制面板到一个新的位置。options对象包含以下2个属性:<br>
+            left： 新的控制面板左边距<br>
+            top： 新的控制面板顶边距
+        </td>
+    </tr>
+    <tr>
+        <td>maximize</td>
+        <td>none</td>
+        <td>使控制面板铺满整个容器。</td>
+    </tr>
+    <tr>
+        <td>minimize</td>
+        <td>none</td>
+        <td>最小化控制面板。</td>
+    </tr>
+    <tr>
+        <td>restore</td>
+        <td>none</td>
+        <td>使最大化的控制面板重置为其初始化时的大小和位置。</td>
+    </tr>
+    <tr>
+        <td>collapse</td>
+        <td>animate</td>
+        <td>折叠控制面板主体。</td>
+    </tr>
+    <tr>
+        <td>expand</td>
+        <td>animate</td>
+        <td>扩展控制面板主体。</td>
+    </tr>
+    </tbody>
+</table>
+</section>
+<section id="tabs">
+<div class="page-header">
+    <h1>选项卡[Tabs]</h1>
+
+    <p>使用$.fn.tabs.defaults重载默认值。</p>
+
+    <p class="alert alert-info">
+        tabs显示一个panel的集合，每一次仅仅只是显示一个tab panel，所有tab panel都有标题和一些小的工具按钮，包含close按钮和其他自定义按钮。
+    </p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/tabs.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+                <span class="btn-group" data-toggle="buttons-radio">
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/panel.html"><i
+                            class="icon-list"></i> 示例一</a>
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/panel2.html"><i
+                            class="icon-list"></i> 示例二</a>
+                </span>
+</div>
+
+<h4>依赖关系：</h4>
+<ul>
+    <li><a href="#panel">控制面板</a></li>
+    <li><a href="menu&button.html#linkbutton">链接按钮</a></li>
+</ul>
+<h4>使用方法：</h4>
+<h5>创建选项卡</h5>
+
+<p>1. 使用HTML标签创建选项卡</p>
+
+<p>
+    使用HTML标签创建选项卡十分简单，不需要写任何javascript代码，只需要&lt;div&gt;标签引用'easyui-panel'类。每个选项卡面板都可以使用闭合的&lt;div&gt;标签对创建，使用方法跟创建控制面板一样。</p>
+
+<p><pre class="prettyprint linenums">
+&lt;div id="tt" class="easyui-tabs" style="width:500px;height:250px;"&gt;
+    &lt;div title="Tab1" style="padding:20px;display:none;"&gt;
+        tab1
+    &lt;/div&gt;
+    &lt;div title="Tab2" closable="true" style="overflow:auto;padding:20px;display:none;"&gt;
+        tab2
+    &lt;/div&gt;
+    &lt;div title="Tab3" iconCls="icon-reload" closable="true" style="padding:20px;display:none;"&gt;
+        tab3
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</p>
+<p>2. 使用脚本创建选项卡</p>
+
+<p>下面的代码演示如何使用脚本创建选项卡，当该选项卡被选择时将会触发'onSelect'事件。</p>
+
+<p><pre class="prettyprint linenums">
+$('#tt').tabs({
+    border:false,
+    onSelect:function(title){
+        alert(title+' is selected');
+    }
+});
+</pre>
+</p>
+<h5>添加一个选项卡面板</h5>
+
+<p><pre class="prettyprint linenums">
+//添加一个选项卡面板
+$('#tt').tabs('add',{
+    title:'New Tab',
+    content:'Tab Body',
+    closable:true
+});
+</pre>
+</p>
+<h5>获取当前被选择的选项卡</h5>
+
+<p><pre class="prettyprint linenums">
+//获取当前被选择的选项卡以及相应的选项卡对象
+var pp = $('#tt').tabs('getSelected');
+var tab = pp.panel('options').tab;    //相应的选项卡对象  </pre>
+</p>
+<h4>属性：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>width（宽度）</td>
+        <td>number（数字）</td>
+        <td>选项卡所在容器（控制面板）的宽度。</td>
+        <td>auto</td>
+    </tr>
+    <tr>
+        <td>height（高度）</td>
+        <td>number（数字）</td>
+        <td>选项卡所在容器（控制面板）的高度。</td>
+        <td>auto</td>
+    </tr>
+    <tr>
+        <td>plain（简洁模式）</td>
+        <td>boolean（布尔型）</td>
+        <td>如果设置为true，将不显示控制面板背景。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>fit（铺满浏览器）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true时，选项卡的大小将铺满它所在的容器（浏览器）。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>border（边框）</td>
+        <td>boolean（布尔型）</td>
+        <td>如果设置true，将显示选项卡所在容器（控制面板）的边框。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>scrollIncrement（滚动增量）</td>
+        <td>number（数字）</td>
+        <td>选项卡滚动条每次滚动的像素值。</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>scrollDuration（滚动时间）</td>
+        <td>number（数字）</td>
+        <td>每次滚动持续的时间，单位为毫秒。</td>
+        <td>400</td>
+    </tr>
+    <tr>
+        <td>tools（工具栏）</td>
+        <td>array（数组）</td>
+        <td>控制面板右侧的工具栏，每个工具选项都跟链接按钮一样。</td>
+        <td>null</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>事件：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>onLoad</td>
+        <td>panel</td>
+        <td>当一个选项卡完成ajax远程载入对象时触发。</td>
+    </tr>
+    <tr>
+        <td>onSelect</td>
+        <td>title</td>
+        <td>当用户选择一个选项卡时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeClose</td>
+        <td>title</td>
+        <td>在一个选项卡被关闭之前触发，返回false将取消关闭。</td>
+    </tr>
+    <tr>
+        <td>onClose</td>
+        <td>title</td>
+        <td>在用户关闭一个选项卡面板后触发。</td>
+    </tr>
+    <tr>
+        <td>onAdd</td>
+        <td>title</td>
+        <td>在一个选项卡面板被添加后触发。</td>
+    </tr>
+    <tr>
+        <td>onUpdate</td>
+        <td>title</td>
+        <td>在一个选项卡面板被更新后触发。</td>
+    </tr>
+    <tr>
+        <td>enableTab</td>
+        <td>which</td>
+        <td>启用一个特定的 tab panel，'which' 参数可以是tab panel的title(标题)或者是index(下标)。
+                    <pre class="prettyprint linenums">
+$('#tt').tabs('enableTab', 1);	//启用第二个tab panel
+$('#tt').tabs('enableTab', 'Tab2');//启用标题为'Tab2'的tab panel</pre>
+            <code>这个方法从1.3版本以后可用。</code>
+        </td>
+    </tr>
+    <tr>
+        <td>disableTab</td>
+        <td>which</td>
+        <td>禁用特定的 tab panel， 'which' 参数可以是tab panel的title(标题)或者index(下标)。
+                    <pre class="prettyprint linenums">
+$('#tt').tabs('disableTab', 1);	//禁用第二个tab pane</pre>
+            <code>这个方法从1.3版本以后可用。</code>
+        </td>
+    </tr>
+    <tr>
+        <td>onContextMenu</td>
+        <td>e, title</td>
+        <td>在一个选项卡面板被鼠标右键单击后触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>options</td>
+        <td>none</td>
+        <td>返回选项卡属性对象。</td>
+    </tr>
+    <tr>
+        <td>tabs</td>
+        <td>none</td>
+        <td>返回所有的选项卡面板。</td>
+    </tr>
+    <tr>
+        <td>resize</td>
+        <td>none</td>
+        <td>重置选项卡容器（控制面板）大小并且自动布局。</td>
+    </tr>
+    <tr>
+        <td>add</td>
+        <td>options</td>
+        <td>添加一个新的选项卡面板，options参数是一个可以配置的对象，查看选项卡控制面板属性获取更多信息。</td>
+    </tr>
+    <tr>
+        <td>close</td>
+        <td>title</td>
+        <td>关闭一个选项卡面板，title参数表示哪个选项卡将被关闭。</td>
+    </tr>
+    <tr>
+        <td>getTab</td>
+        <td>title</td>
+        <td>获取特定的选项卡面板名称。</td>
+    </tr>
+    <tr>
+        <td>getSelected</td>
+        <td>none</td>
+        <td>获取被选择的选项卡面板名称。</td>
+    </tr>
+    <tr>
+        <td>select</td>
+        <td>title</td>
+        <td>选择一个选项卡面板。</td>
+    </tr>
+    <tr>
+        <td>exists</td>
+        <td>title</td>
+        <td>验证一个特定的选项卡面板是否存在。</td>
+    </tr>
+    <tr>
+        <td>update</td>
+        <td>param</td>
+        <td>更新特定的选项卡面板，param参数包含2个属性:<br>
+            tab: 将被更新的选项卡。<br>
+            options: 选项卡相关配置项。
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h5>选项卡面板：</h5>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>title（标题）</td>
+        <td>string（字符串）</td>
+        <td>选项卡面板的标题。</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>content（内容）</td>
+        <td>string（字符串）</td>
+        <td>选项卡面板的内容。</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>href（超链接）</td>
+        <td>string（字符串）</td>
+        <td>从超链接载入远程内容到选项卡 面板。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>cache（缓存）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将缓存选项卡面板，当href（超链接）属性被设置时有效。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>iconCls（图标CSS类）</td>
+        <td>string（字符串）</td>
+        <td>一个显示选项卡面板标题图标的CSS类。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>width（宽度）</td>
+        <td>number（数字）</td>
+        <td>选项卡面板的宽度。</td>
+        <td>auto</td>
+    </tr>
+    <tr>
+        <td>height（高度）</td>
+        <td>number（数字）</td>
+        <td>选项卡面板的高度。</td>
+        <td>auto</td>
+    </tr>
+    </tbody>
+</table>
+<p>其他一些属性</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>closable（可关闭）</td>
+        <td>boolean（布尔型）</td>
+        <td>当这是为true时，选项卡面板将会显示一个关闭按钮，<br>点击该按钮将关闭选项卡。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>selected（默认选项卡）</td>
+        <td>boolean（布尔型）</td>
+        <td>当设置为true时，将会默认显示该选项卡下的内容。</td>
+        <td>false</td>
+    </tr>
+    </tbody>
+</table>
+</section>
+<section id="accordion">
+<div class="page-header">
+    <h1>可伸缩面板[accordion]</h1>
+
+    <p>使用$.fn.accordion.defaults重载默认值</p>
+
+    <p class="alert alert-info">
+        accordion允许你提供提供多个panel每次显示一个，所有的内置的panel都内置支持展开(expanding)和折叠(collapsing),点击一个panel的头部展开或者折叠
+        这个panel的body，panel的内容可以通过ajax加载，通过一个特定的"href"属性。用户可以定义一个panel让其选中，如果没有定义，第一个panel是默认的。
+    </p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/accordion.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+                <span class="btn-group" data-toggle="buttons-radio">
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/panel.html"><i
+                            class="icon-list"></i> 示例一</a>
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/panel2.html"><i
+                            class="icon-list"></i> 示例二</a>
+                </span>
+</div>
+
+<h4>依赖关系：</h4>
+<ul>
+    <li><a href="#panel">控制面板</a></li>
+</ul>
+<h4>使用方法：</h4>
+<h5>创建可伸缩面板</h5>
+
+<p>使用html标签创建可伸缩面板，只须要对&lt;div&gt;标签引用'easyui-accordion'类。</p>
+
+<p>
+    使用HTML标签创建选项卡十分简单，不需要写任何javascript代码，只需要&lt;div&gt;标签引用'easyui-panel'类。每个选项卡面板都可以使用闭合的&lt;div&gt;标签对创建，使用方法跟创建控制面板一样。</p>
+
+<p><pre class="prettyprint linenums">
+&lt;div id="aa" class="easyui-accordion" style="width:300px;height:200px;"&gt;
+    &lt;div title="Title1" iconCls="icon-save" style="overflow:auto;padding:10px;"&gt;
+&lt;h3 style="color:#0099FF;">Accordion for jQuery&lt;/h3&gt;
+    &lt;p>Accordion is a part of easyui framework for jQuery.
+    It lets you define your accordion component on web page more easily.&lt;/p&gt;
+    &lt;/div>
+    &lt;div title="Title2" iconCls="icon-reload" selected="true" style="padding:10px;"&gt;
+        content2
+    &lt;/div&gt;
+    &lt;div title="Title3"&gt;
+        content3
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</p>
+<p>在后面将介绍如何改变或者重建可伸缩面板以及修改一些特性。</p>
+
+<p><pre class="prettyprint linenums">
+$('#aa').accordion({
+    animate:false
+}); </pre>
+</p>
+<h5>添加一个选项卡面板</h5>
+
+<p><pre class="prettyprint linenums">
+//添加一个选项卡面板
+$('#tt').tabs('add',{
+    title:'New Tab',
+    content:'Tab Body',
+    closable:true
+});
+</pre>
+</p>
+<h5>刷新可伸缩面板的内容</h5>
+
+<p>调用'getSelected'方法获取当前面板（的名称），接着可以调用控制面板的'refresh'方法来载入新的内容。</p>
+
+<p><pre class="prettyprint linenums">
+var pp = $('#aa').accordion('getSelected'); //获取当前选择的可伸缩面板
+if (pp){
+    pp.panel('refresh','new_content.php');  //调用'refresh'方法载入新内容
+}  </pre>
+</p>
+<h4>容器属性（可伸缩面板所在的容器，通常称为‘盒子’）</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>width（宽度）</td>
+        <td>number（数字）</td>
+        <td>可伸缩面板所在容器的宽度。</td>
+        <td>auto</td>
+    </tr>
+    <tr>
+        <td>height（高度）</td>
+        <td>number（数字）</td>
+        <td>可伸缩面板所在容器的高度。</td>
+        <td>auto</td>
+    </tr>
+    <tr>
+        <td>fit（铺满浏览器）</td>
+        <td>boolean（布尔型）</td>
+        <td>如果设置为true，可伸缩面板所在容器将铺满它所在的父容器（浏览器）</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>border（边框）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否显示边框。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>animate（动画效果）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义当延伸或者折叠面板时是否显示动画效果。</td>
+        <td>true</td>
+    </tr>
+    </tbody>
+</table>
+<h4>可伸缩面板属性</h4>
+
+<p>可伸缩面板继承控制面板的属性，以下是额外的属性：</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>selected（被选择）</td>
+        <td>boolean（布尔型）</td>
+        <td>设置为true将默认展开面板。</td>
+        <td>false</td>
+    </tr>
+    </tbody>
+</table>
+<h4>事件：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>onSelect</td>
+        <td>title</td>
+        <td>当一个可伸缩面板被选择时触发。</td>
+    </tr>
+    <tr>
+        <td>onAdd</td>
+        <td>title</td>
+        <td>在一个新面板被添加时触发。</td>
+    </tr>
+    <tr>
+        <td>onBeforeRemove</td>
+        <td>title</td>
+        <td>在可伸缩面板被移除之前触发，返回false将取消移除。</td>
+    </tr>
+    <tr>
+        <td>onRemove</td>
+        <td>title</td>
+        <td>在一个可伸缩面板被移除时触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>options</td>
+        <td>none</td>
+        <td>返回容器属性对象。</td>
+    </tr>
+    <tr>
+        <td>panels</td>
+        <td>none</td>
+        <td>获取所有的面板。</td>
+    </tr>
+    <tr>
+        <td>resize</td>
+        <td>none</td>
+        <td>重置可伸缩面板。</td>
+    </tr>
+    <tr>
+        <td>getSelected</td>
+        <td>none</td>
+        <td>获取被选择的面板。</td>
+    </tr>
+    <tr>
+        <td>getPanel</td>
+        <td>title</td>
+        <td>获取特定的可伸缩面板。</td>
+    </tr>
+    <tr>
+        <td>getPanelIndex</td>
+        <td>panel</td>
+        <td>得到特定的panel的下标。<br>下面的示例代码展示如何得到一个选中的panel的下标(index)。
+                <pre class="prettyprint linenums">
+var p = $('#aa').accordion('getSelected');
+if (p){
+	var index = $('#aa').accordion('getPanelIndex', p);
+	alert(index);
+}
+</pre>
+            <code>这个方法从1.3版本以后可用。</code>
+        </td>
+    </tr>
+    <tr>
+        <td>select</td>
+        <td>title</td>
+        <td>选择特定的面板。</td>
+    </tr>
+    <tr>
+        <td>add</td>
+        <td>options</td>
+        <td>添加一个先的可伸缩面板。</td>
+    </tr>
+    <tr>
+        <td>remove</td>
+        <td>title</td>
+        <td>移除特定的面板。</td>
+    </tr>
+    </tbody>
+</table>
+</section>
+<section id="layout">
+    <div class="page-header">
+        <h1>布局面板[layout]</h1>
+
+        <p>使用$.fn.layout.defaults重载默认值</p>
+
+        <p class="alert alert-info">
+            layout是一个容器,它有5个区域：north(北丐)，south(南帝)，east(东邪)，west(西毒)；center(中神通)，像不像金庸的天龙八部，中间区域的panel是必须的，周边区域panel是可选项，所有周边区域的panel可以改变大小通过拖动边框，他们也可以折叠(collapse)通过点击触发折叠事件，布局可以嵌套，因此用户可以创建你想要的复杂布局。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/layout.html" class="autoheight" width="100%" height="360"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+                <span class="btn-group" data-toggle="buttons-radio">
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/layout.html"><i
+                            class="icon-list"></i> 示例一</a>
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/layout1.html"><i
+                            class="icon-list"></i> 示例二</a>
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/layout2.html"><i
+                            class="icon-list"></i> 示例三</a>
+                </span>
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#panel">控制面板</a></li>
+        <li><a href="base.html#resizable">缩放</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+    <h5>创建布局面板</h5>
+
+    <p>使用HTML标签创建布局面板，只须要对&lt;div&gt;标签引用'easyui-layout'类。</p>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="cc" class="easyui-layout" style="width:600px;height:400px;"&gt;
+    &lt;div region="north" title="North Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+    &lt;div region="south" title="South Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+    &lt;div region="east" iconCls="icon-reload" title="East" split="true" style="width:100px;"&gt;&lt;/div&gt;
+    &lt;div region="west" split="true" title="West" style="width:100px;"&gt;&lt;/div&gt;
+    &lt;div region="center" title="center title" style="padding:5px;background:#eee;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </p>
+    <p>在整个页面创建布局面板。</p>
+
+    <p><pre class="prettyprint linenums">
+&lt;body class="easyui-layout">
+&lt;div region="north" title="North Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+&lt;div region="south" title="South Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+&lt;div region="east" iconCls="icon-reload" title="East" split="true" style="width:100px;"&gt;&lt;/div&gt;
+&lt;div region="west" split="true" title="West" style="width:100px;"&gt;&lt;/div&gt;
+&lt;div region="center" title="center title" style="padding:5px;background:#eee;"&gt;&lt;/div&gt;
+&lt;/body&gt;  </pre>
+    </p>
+    <h5>折叠布局面板</h5>
+
+    <p><pre class="prettyprint linenums">
+$('#cc').layout();
+//折叠左边的面板
+$('#cc').layout('collapse','west');
+</pre>
+    </p>
+    <h4>属性</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td>title（标题）</td>
+            <td>string（字符串）</td>
+            <td>布局面板的标题。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>region（区域）</td>
+            <td>string（字符串）</td>
+            <td>定义布局面板的位置（方向），可以取下列值的其中之一：north, south, east, west, center。</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>border（边框）</td>
+            <td>boolean（布尔型）</td>
+            <td>设置为true将显示布局面板的边框。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>split（分隔条）</td>
+            <td>boolean（布尔型）</td>
+            <td>如果设置为true将显示一个分隔条，用户可以拖动分隔条来改变布局面板的尺寸。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>iconCls（图标CSS类）</td>
+            <td>string（字符串）</td>
+            <td>一个用来显示布局面板头部图标的css类。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>href（超链接）</td>
+            <td>string（字符串）</td>
+            <td>一个用来从远程站点载入数据的超链接。</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>resize</td>
+            <td>none</td>
+            <td>设置布局面板的尺寸大小。</td>
+        </tr>
+        <tr>
+            <td>panel</td>
+            <td>region</td>
+            <td>返回特定的布局面板，'region'参数的可取值为：<br>'north','south','east','west','center'。</td>
+        </tr>
+        <tr>
+            <td>collapse</td>
+            <td>region</td>
+            <td>折叠特定的布局面板，'region'参数的可取值为：'north','south','east','west'。</td>
+        </tr>
+        <tr>
+            <td>expand</td>
+            <td>region</td>
+            <td>延伸特定的布局面板，'region'参数的可取值为：'north','south','east','west'。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</div>
+</div>
+</div>
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="bs-docs-social">
+        <div class="container">
+            <ul class="bs-docs-social-buttons">
+                <li><a href="http://weibo.com/atzihan">新浪微博</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=62">联系方式</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=75">留言</a></li>
+                <li><a href="http://www.zi-han.net/?feed=rss2">RSS</a></li>
+                <li><a target="_blank"
+                       href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=i@zi-han.net">E-Mail</a>
+                </li>
+                <li>疏漏之处，请不吝斧正！</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="docs/assets/js/jquery.js"></script>
+<script src="docs/assets/js/google-code-prettify/prettify.js"></script>
+<script src="docs/assets/js/bootstrap-modal.js"></script>
+<script src="docs/assets/js/bootstrap-scrollspy.js"></script>
+<script src="docs/assets/js/bootstrap-tooltip.js"></script>
+<script src="docs/assets/js/bootstrap-popover.js"></script>
+<script src="docs/assets/js/bootstrap-button.js"></script>
+<script src="docs/assets/js/bootstrap-carousel.js"></script>
+<script src="docs/assets/js/bootstrap-affix.js"></script>
+<script src="docs/assets/js/application.js"></script>
+<script src="docs/docs.js"></script>
+</body>
+</html>

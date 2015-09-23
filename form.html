@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery EasyUI 1.3 中文文档--表单[form]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网上关于jQuery EasyUI最新版的中文文档比较少，特花了一些时间制作了这篇中文文档，贡献出来，希望对想学习和正在用的同学有帮助！">
+    <meta name="keywords" content="jQuery EasyUI 1.3中文文档,jQuery EasyUI 1.3中文api,jQuery EasyUI 1.3在线文档，easyui form">
+    <meta name="author" content="http://www.zi-han.net">
+    <!-- Le styles -->
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/assets/css/docs.css" rel="stylesheet">
+    <link href="docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script>var _hmt = _hmt||[];(function(){var hm=document.createElement("script");hm.src ="//hm.baidu.com/hm.js?8867273989ac579c211d99bc3e0d00dd";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="http://www.zi-han.net">作者博客</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="">
+                        <a href="base.html" rel="tooltip" data-placement="bottom" data-original-title="Base">基本</a>
+                    </li>
+                    <li class="">
+                        <a href="layout.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Layout">布局管理器</a>
+                    </li>
+                    <li class="">
+                        <a href="menu&button.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Menu and Button">菜单和按钮</a>
+                    </li>
+                    <li class="active">
+                        <a href="form.html" rel="tooltip" data-placement="bottom" data-original-title="Form">表单</a>
+                    </li>
+                    <li class="">
+                        <a href="window.html" rel="tooltip" data-placement="bottom" data-original-title="Window">窗口</a>
+                    </li>
+                    <li class="">
+                        <a href="datagrid&tree.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="DataGrid and Tree">数据表格和树形菜单</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>菜单和按钮(Menu and Button)</h1>
+    </div>
+</header>
+
+
+<div class="container">
+
+<!-- Docs nav
+================================================== -->
+<div class="row">
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav">
+        <li><a href="#form"><i class="icon-chevron-right"></i>表单</a></li>
+        <li><a href="#validatebox"><i class="icon-chevron-right"></i>表单验证</a></li>
+        <li><a href="#combo"><i class="icon-chevron-right"></i>自定义组合框</a></li>
+        <li><a href="#combobox"><i class="icon-chevron-right"></i>可装载组合框</a></li>
+        <li><a href="#combotree"><i class="icon-chevron-right"></i>组合树</a></li>
+        <li><a href="#combogrid"><i class="icon-chevron-right"></i>组合表格</a></li>
+        <li><a href="#numberbox"><i class="icon-chevron-right"></i>数字验证框</a></li>
+        <li><a href="#datebox"><i class="icon-chevron-right"></i>日期组合框</a></li>
+        <li><a href="#datetimebox"><i class="icon-chevron-right"></i>日期时间组合框</a></li>
+        <li><a href="#calendar"><i class="icon-chevron-right"></i>日历</a></li>
+        <li><a href="#spinner"><i class="icon-chevron-right"></i>调节器</a></li>
+        <li><a href="#numberspinner"><i class="icon-chevron-right"></i>数字调节器</a></li>
+        <li><a href="#timespinner"><i class="icon-chevron-right"></i>时间调节器</a></li>
+    </ul>
+</div>
+<div class="span9">
+
+<!-- Button Groups
+================================================== -->
+<section id="form">
+    <div class="page-header">
+        <h1>表单[Form]</h1>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/form.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;form id="ff" method="post"&gt;
+    ...
+&lt;/form&gt;
+</pre>
+    </p>
+    <h5>使用ajax方式提交表单</h5>
+
+    <p><pre class="prettyprint linenums">
+$('#ff').form({
+    url:...,
+    onSubmit: function(){
+        //进行表单验证
+        //如果返回false阻止提交
+    },
+    success:function(data){
+        alert(data)
+    }
+});
+//提交表单
+$('#ff').submit();
+</pre>
+    </p>
+    <p>普通方式提交</p>
+
+    <p><pre class="prettyprint linenums">
+//调用表单插件的'submit'方法提交
+$('#ff').form('submit', {
+    url:...,
+    onSubmit: function(){
+        //进行表单验证
+        //如果返回false阻止提交
+    },
+    success:function(data){
+        alert(data)
+    }
+});
+</pre>
+    </p>
+
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>url（目标网址）</td>
+            <td>string（字符串）</td>
+            <td>表单提交的目标网址</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td>onSubmit</td>
+            <td>none</td>
+            <td>在表单提交之前触发，返回false将阻止表单提交。</td>
+        </tr>
+        <tr>
+            <td>success</td>
+            <td>data</td>
+            <td>当表单成功提交时触发。</td>
+        </tr>
+        <tr>
+            <td>onBeforeLoad</td>
+            <td>param</td>
+            <td>在发送载入远程数据请求之前触发，返回false将取消请求。</td>
+        </tr>
+        <tr>
+            <td>onLoadSuccess</td>
+            <td>data</td>
+            <td>在表单数据被载入时触发。</td>
+        </tr>
+        <tr>
+            <td>onLoadError</td>
+            <td>none</td>
+            <td>在载入表单数据发生错误时触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>submit</td>
+            <td>options</td>
+            <td>执行表单提交，options参数是一个包含以下属性的对象：<br>
+                url：表单提交的目标网址<br>
+                onSubmit：在表单提交之前执行的回调函数<br>
+                success: 在表单成功提交后执行的回调函数<br></td>
+        </tr>
+        <tr>
+            <td>load</td>
+            <td>data</td>
+            <td>载入记录填充表单。<br>
+                data参数可以是字符串或者对象类型，当传入字符串时，data参数必须是一个远程url地址，否则用户必须自定义要载入的数据
+            </td>
+        </tr>
+        <tr>
+            <td>clear</td>
+            <td>none</td>
+            <td>清除表单数据</td>
+        </tr>
+        <tr>
+            <td>validate</td>
+            <td>none</td>
+            <td>执行表单域验证，如果全部表单域有效返回true，该方法与表单验证插件一起使用。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="validatebox">
+    <div class="page-header">
+        <h1>表单验证[validatebox]</h1>
+
+        <p>使用$.fn.validatebox.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/validatebox.html" class="autoheight" width="100%"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="vv" required="true" validType="email"&gt;
+</pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#vv').validatebox({
+    required:true
+});
+</pre>
+    </p>
+    <h4>验证规则</h4>
+
+    <p>验证规则使用required和validType属性来定义, 以下列出的是插件内置的验证规则。</p>
+    <ul>
+        <li>email: 正则匹配电子邮件。</li>
+        <li>url: 正则匹配url。</li>
+        <li>length[0,100]: 验证长度范围。</li>
+        <li>remote['http://.../action.do','paramName']: 发送ajax请求来验证，验证有效时返回true。</li>
+    </ul>
+    <p>要自定义规则，重载$.fn.validatebox.defaults。你所定义的验证规则必须定义一个验证函数和验证无效时的提示信息。 例如，定义一个验证最小长度的规则：</p>
+
+    <p><pre class="prettyprint linenums">
+$.extend($.fn.validatebox.defaults.rules, {
+    minLength: {
+        validator: function(value, param){
+            return value.length >= param[0];
+        },
+        message: 'Please enter at least {0} characters.'
+    }
+});
+</pre>
+    </p>
+    <p>现在你可以使用最小长度验证规则来定义一个至少要输入5个字符的输入框。</p>
+
+    <p><pre class="prettyprint linenums">
+&lt;input class="easyui-validatebox" validType="minLength[5]"&gt;
+</pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>required（必填）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义表单域必须填写。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>validType（验证类型）</td>
+            <td>string（字符串）</td>
+            <td>定义表单域的验证类型，比如：email, url等。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>missingMessage（未填提示）</td>
+            <td>string（字符串）</td>
+            <td>当表单域未填写时出现的提示信息。</td>
+            <td>This field is required.</td>
+        </tr>
+        <tr>
+            <td>invalidMessage（无效提示）</td>
+            <td>string（字符串）</td>
+            <td>当表单域的内容被验证为无效时出现的提示。</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>destroy</td>
+            <td>none</td>
+            <td>移除并注销组件。</td>
+        </tr>
+        <tr>
+            <td>validate</td>
+            <td>none</td>
+            <td>验证表单域的内容是否有效。</td>
+        </tr>
+        <tr>
+            <td>isValid</td>
+            <td>none</td>
+            <td>调用validate方法并且返回验证结果，true或者false。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="combo">
+<div class="page-header">
+    <h1>自定义组合框[combo]</h1>
+
+    <p>继承$.fn.validatebox.defaults，使$.fn.combo.defaults重载。</p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/combo.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+</div>
+<h4>依赖关系：</h4>
+<ul>
+    <li><a href="#validatebox">表单验证</a></li>
+    <li><a href="layout.html#panel">控制面板</a></li>
+</ul>
+<h4>使用方法：</h4>
+
+<p><pre class="prettyprint linenums">
+&lt;input id="cc" value="001"&gt;
+&lt;select id="cc"&gt;&lt;/select &gt;
+</pre>
+</p>
+<p><pre class="prettyprint linenums">
+$('#cc').combo({
+    required:true,
+    multiple:true
+}); </pre>
+</p>
+
+<h4>属性：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>width（宽度）</td>
+        <td>number（数字）</td>
+        <td>组合框的宽度。</td>
+        <td>auto</td>
+    </tr>
+    <tr>
+        <td>panelWidth（下拉框宽度）</td>
+        <td>number（数字）</td>
+        <td>下拉框的宽度。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>panelHeight（下拉框高度）</td>
+        <td>number（数字）</td>
+        <td>下拉框的高度。</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>multiple（可多选）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否支持多选。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>separator（分隔条）</td>
+        <td>string（字符串）</td>
+        <td>当支持多选时，用以分隔文本的字符。</td>
+        <td>,</td>
+    </tr>
+    <tr>
+        <td>editable（可编辑）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义用户是否可以直接向组合框输入内容。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>disabled（禁用）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否禁用输入框。</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>hasDownArrow（下拉图标）</td>
+        <td>boolean（布尔型）</td>
+        <td>定义是否显示下拉按钮。</td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>value（值）</td>
+        <td>string（字符串）</td>
+        <td>默认值。</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>delay（延迟）</td>
+        <td>number（数字）</td>
+        <td>最后一次输入事件与搜索（自动完成）之间的延迟间隔。</td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>keyHandler（按键助手）</td>
+        <td>object（对象）</td>
+        <td>
+            当用户按下一个键位时调用的函数，默认的按键助手定义如下：
+<pre class="prettyprint linenums">
+keyHandler: {
+	up: function(){},
+	down: function(){},
+	enter: function(){},
+	query: function(q){}
+}
+</pre>
+
+        </td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>事件：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>onShowPanel</td>
+        <td>none</td>
+        <td>当显示下拉面板的时候触发。</td>
+    </tr>
+    <tr>
+        <td>onHidePanel</td>
+        <td>none</td>
+        <td>当隐藏下拉面板的时候触发。</td>
+    </tr>
+    <tr>
+        <td>onChange</td>
+        <td>newValue, oldValue</td>
+        <td>当组合框的值发生改变时触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>options</td>
+        <td>none</td>
+        <td>返回属性对象。</td>
+    </tr>
+    <tr>
+        <td>panel</td>
+        <td>none</td>
+        <td>返回下拉面板对象。</td>
+    </tr>
+    <tr>
+        <td>textbox</td>
+        <td>none</td>
+        <td>返回文本框对象。</td>
+    </tr>
+    <tr>
+        <td>destroy</td>
+        <td>none</td>
+        <td>销毁组件。</td>
+    </tr>
+    <tr>
+        <td>resize</td>
+        <td>width</td>
+        <td>调整组件的宽度。</td>
+    </tr>
+    <tr>
+        <td>showPanel</td>
+        <td>none</td>
+        <td>显示下拉面板。</td>
+    </tr>
+    <tr>
+        <td>hidePanel</td>
+        <td>none</td>
+        <td>隐藏下拉面板。</td>
+    </tr>
+    <tr>
+        <td>disable</td>
+        <td>none</td>
+        <td>禁用组合框。</td>
+    </tr>
+    <tr>
+        <td>enable</td>
+        <td>none</td>
+        <td>启用组合框。</td>
+    </tr>
+    <tr>
+        <td>validate</td>
+        <td>none</td>
+        <td>验证输入的值。</td>
+    </tr>
+    <tr>
+        <td>isValid</td>
+        <td>none</td>
+        <td>返回验证结果。</td>
+    </tr>
+    <tr>
+        <td>clear</td>
+        <td>none</td>
+        <td>清除组件的值。</td>
+    </tr>
+    <tr>
+        <td>getText</td>
+        <td>none</td>
+        <td>获取组合框的值。</td>
+    </tr>
+    <tr>
+        <td>setText</td>
+        <td>text</td>
+        <td>设置组合框的值。</td>
+    </tr>
+    <tr>
+        <td>getValues</td>
+        <td>none</td>
+        <td>返回一个存储下拉面板值的数组。</td>
+    </tr>
+    <tr>
+        <td>setValues</td>
+        <td>values</td>
+        <td>设置下拉面板的值，参数values是一个数组。</td>
+    </tr>
+    <tr>
+        <td>getValue</td>
+        <td>none</td>
+        <td>获取下拉面板的值。</td>
+    </tr>
+    <tr>
+        <td>setValue</td>
+        <td>value</td>
+        <td>设置下拉面板的值。</td>
+    </tr>
+    </tbody>
+</table>
+</section>
+<section id="combobox">
+<div class="page-header">
+    <h1>自定义组合框[combobox]</h1>
+
+    <p>继承$.fn.combo.defaults，使用$.fn.combobox.defaults重载默认值。</p>
+</div>
+<div class="bs-docs-example">
+    <iframe src="jquery-easyui-1.3.1/demo/combobox.html" class="autoheight" width="100%" frameborder="0"></iframe>
+</div>
+<div class="viewbtnbox">
+    <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+            class="icon-search icon-white"></i> 查看源代码
+    </button>
+</div>
+<h4>依赖关系：</h4>
+<ul>
+    <li><a href="#combo"></a>自定义组合框</li>
+</ul>
+<h4>使用方法：</h4>
+
+<p><pre class="prettyprint linenums">
+&lt;select id="cc" name="dept" style="width:200px;"&gt;
+    &lt;option value="aa"&gt;aitem1&lt;/option&gt;
+    &lt;option&gt;bitem2&lt;/option&gt;
+    &lt;option&gt;bitem3&lt;/option&gt;
+    &lt;option&gt;ditem4&lt;/option&gt;
+    &lt;option&gt;eitem5&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+</p>
+<p><pre class="prettyprint linenums">
+&lt;input id="cc" name="dept" value="aa"&gt;  </pre>
+</p>
+<p><pre class="prettyprint linenums">
+$('#cc').combobox({
+    url:'combobox_data.json',
+    valueField:'id',
+    textField:'text'
+});  </pre>
+</p>
+<p>json数据转换示例：</p>
+
+<p><pre class="prettyprint linenums">
+[{
+    "id":1,
+    "text":"text1"
+},{
+    "id":2,
+    "text":"text2"
+},{
+    "id":3,
+    "text":"text3",
+    "selected":true
+},{
+    "id":4,
+    "text":"text4"
+},{
+    "id":5,
+    "text":"text5"
+}]   </pre>
+</p>
+
+<h4>属性：</h4>
+
+<p>继承自定义组合框的属性, 以下是可装载组合框的独有属性。</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+        <td>valueField（值域）</td>
+        <td>string（字符串）</td>
+        <td>绑定到组合框下的数据的值域的名称。</td>
+        <td>value</td>
+    </tr>
+    <tr>
+        <td>textField（文本域）</td>
+        <td>string（字符串）</td>
+        <td>绑定到组合框下数据的文本域的名称。</td>
+        <td>text</td>
+
+    </tr>
+    <tr>
+        <td>mode（模式）</td>
+        <td>string（字符串）</td>
+        <td>定义当文本发生改变时，如何载入数据列表。如果组合框要从远程地址载入数据，设置为'remote'。</td>
+        <td>local</td>
+    </tr>
+    <tr>
+        <td>url（超链接地址）</td>
+        <td>string（字符串）</td>
+        <td>可供载入数据列表的远程地址。</td>
+
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>method（方法）</td>
+        <td>string（字符串）</td>
+        <td>获取数据的HTTP方法。</td>
+        <td>post</td>
+    </tr>
+    <tr>
+        <td>data（数据）</td>
+        <td>array（数组）</td>
+
+        <td>将被载入的数据列表。</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>filter（过滤器）</td>
+        <td>function（函数）</td>
+        <td>定义当模式设置为'local'时如何过滤本地数据，function有2个参数：<br>
+            q: 用户输入的文本。<br>
+            row: 数据列表<br>
+            返回true将允许显示数据列表。
+        </td>
+
+        <td></td>
+    </tr>
+    <tr>
+        <td>formatter(格式)</td>
+        <td>function（函数）</td>
+        <td>定义如何返回数据，function有一个参数：row。</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>事件：</h4>
+
+<p>事件继承自定义组合框，以下是可装载组合框的独有事件。</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>onLoadSuccess</td>
+
+        <td>none</td>
+        <td>当远程数据载入成功时触发。</td>
+    </tr>
+    <tr>
+        <td>onLoadError</td>
+        <td>none</td>
+        <td>当远程数据载入错误时触发。</td>
+    </tr>
+    <tr>
+        <td>onSelect</td>
+        <td>record</td>
+
+        <td>当用户选择一个列表项时触发。</td>
+    </tr>
+    <tr>
+        <td>onUnselect</td>
+        <td>record</td>
+        <td>当用户取消选择一个列表项时触发。</td>
+    </tr>
+    </tbody>
+</table>
+<h4>方法：</h4>
+
+<p>方法继承自定义组合框，以下是可装载组合框独有的或者重载自定义组合框的方法。</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>options</td>
+
+        <td>none</td>
+        <td>返回属性对象。</td>
+    </tr>
+    <tr>
+        <td>getData</td>
+        <td>none</td>
+        <td>返回已载入的数据。</td>
+    </tr>
+    <tr>
+        <td>loadData</td>
+        <td>data</td>
+
+        <td>载入本地数据列表。</td>
+    </tr>
+    <tr>
+        <td>reload</td>
+        <td>url</td>
+        <td>请求远程数据列表。</td>
+    </tr>
+    <tr>
+        <td>setValues</td>
+        <td>values</td>
+        <td>设置组合框的值，参数values是一个数组。</td>
+
+    </tr>
+    <tr>
+        <td>setValue</td>
+        <td>value</td>
+        <td>设置组合框的值。</td>
+    </tr>
+    <tr>
+        <td>clear</td>
+        <td>none</td>
+        <td>清除组合框的值。</td>
+    </tr>
+
+    <tr>
+        <td>select</td>
+        <td>value</td>
+        <td>选择特定的项目。</td>
+    </tr>
+    <tr>
+        <td>unselect</td>
+        <td>value</td>
+        <td>取消选择特定的项目。</td>
+    </tr>
+    </tbody>
+</table>
+</section>
+<section id="combotree">
+    <div class="page-header">
+        <h1>组合树[combotree]</h1>
+
+        <p>继承$.fn.combo.defaults和$.fn.tree.defaults，使用$.fn.combotree.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/combotree.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#combo">自定义组合框</a></li>
+        <li><a href="datagrid&tree.html#tree">树形菜单</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;select id="cc" style="width:200px;"&gt;&lt;/select&gt;
+</pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+&lt;input id="cc"  value="01"&gt;  </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#cc').combotree({
+    url:'tree_data.json'
+});   </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承自定义组合框和树形菜单，以下是组合树重载的属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>editable（可编辑）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义用户是否可以直接输入。</td>
+            <td>false</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+
+    <p>事件继承自定义组合框和树形菜单</p>
+    <h4>方法：</h4>
+
+    <p>方法继承自定义组合框，以下是组合树独有的或者重载自定义组合框的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>tree</td>
+            <td>none</td>
+            <td>返回树形菜单对象。</td>
+        </tr>
+        <tr>
+            <td>loadData</td>
+            <td>data</td>
+            <td>载入本地树形菜单数据。</td>
+        </tr>
+
+        <tr>
+            <td>reload</td>
+            <td>url</td>
+            <td>再次向远程树形菜单数据发起请求。</td>
+        </tr>
+        <tr>
+            <td>clear</td>
+            <td>none</td>
+            <td>清除组件值。</td>
+        </tr>
+        <tr>
+
+            <td>setValues</td>
+            <td>values</td>
+            <td>设置组合框的值，参数values是一个数组。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置组合框的值。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="combogrid">
+    <div class="page-header">
+        <h1>组合表格[combogrid]</h1>
+
+        <p>继承$.fn.combo.defaults和$.fn.datagrid.defaults，使用$.fn.combogrid.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/combogrid.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#combo">自定义组合框</a></li>
+        <li><a href="datagrid&tree.html#datagrid">数据表格</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;select id="cc" name="dept" style="width:250px;"&gt;&lt;/select&gt;
+</pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+&lt;input id="cc" name="dept" value="01"&gt;  </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#cc').combogrid({
+    panelWidth:450,
+    value:'006',
+    idField:'code',
+    textField:'name',
+    url:'datagrid_data.json',
+    columns:[[
+        {field:'code',title:'Code',width:60},
+        {field:'name',title:'Name',width:100},
+        {field:'addr',title:'Address',width:120},
+        {field:'col4',title:'Col41',width:100}
+    ]]
+});     </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承自定义组合框和数据表格，以下是组合表格独有的属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td>loadMsg（载入时信息）</td>
+            <td>string（字符串）</td>
+            <td>当数据表格载入远程数据时的提示信息。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>idField（id字段）</td>
+            <td>string（字符串）</td>
+            <td>标识表格行数据唯一性的字段名。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>textField（文本域）</td>
+            <td>string（字符串）</td>
+            <td>显示在文本框中的文本域的名称。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>mode（模式）</td>
+            <td>string（字符串）</td>
+            <td>定义当文本发生改变时如何载入组合表格的数据。如果组合表格要从远程服务器载入数据，设置为'remote'。</td>
+            <td>local</td>
+        </tr>
+        <tr>
+            <td>filter（过滤器）</td>
+            <td>function(q, row)</td>
+            <td>定义当模式设置为'local'时如何选择本地数据，返回true将选择一行。</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+
+    <p>事件继承自定义组合框和数据表格。</p>
+    <h4>方法：</h4>
+
+    <p>方法继承自定义组合框，以下是组合表格独有的或者重载自定义组合框的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>grid</td>
+            <td>none</td>
+            <td>返回数据表格对象。</td>
+        </tr>
+        <tr>
+            <td>setValues</td>
+            <td>values</td>
+            <td>设置组合框的值，参数values是一个数组。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置组合框的值</td>
+        </tr>
+        <tr>
+            <td>clear</td>
+            <td>none</td>
+            <td>清除组合框的值。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="numberbox">
+    <div class="page-header">
+        <h1>组合表格[numberbox]</h1>
+
+        <p>继承$.fn.validatebox.defaults，使用$.fn.numberbox.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/numberbox.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    <span class="btn-group" data-toggle="buttons-radio">
+         <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/numberbox.html"><i
+                 class="icon-list"></i> 示例一</a>
+         <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/numberbox2.html"><i
+                 class="icon-list"></i> 示例二</a>
+    </span>
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#combo">自定义组合框</a></li>
+        <li><a href="datagrid&tree.html#datagrid">数据表格</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="nn" value="01"&gt;  </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#nn').numberbox({
+    min:0,
+    precision:2
+});  </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承表单验证，以下是数字验证框的独有属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td>disabled（禁用）</td>
+
+            <td>boolean（布尔型）</td>
+            <td>定义是否禁用输入框。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>min（最小值）</td>
+            <td>number（数字）</td>
+            <td>允许的最小值。</td>
+            <td>null</td>
+        </tr>
+
+        <tr>
+            <td>max（最大值）</td>
+            <td>number（数字）</td>
+            <td>允许的最大值。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>precision（精度）</td>
+            <td>number（数字）</td>
+            <td>精确到小数点后的最大位数。</td>
+
+            <td>0</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>方法：</h4>
+
+    <p>方法继承表单验证，以下是数字验证独有的或者重载表单验证的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>disable</td>
+            <td>none</td>
+            <td>禁用输入框。</td>
+        </tr>
+        <tr>
+            <td>enable</td>
+            <td>none</td>
+
+            <td>启用输入框。</td>
+        </tr>
+        <tr>
+            <td>fix</td>
+            <td>none</td>
+            <td>将输入框的值修正为一个有效值。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="datebox">
+    <div class="page-header">
+        <h1>日期组合框[datebox]</h1>
+
+        <p>继承$.fn.combo.defaults，使用$.fn.datebox.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/datebox.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#combo">自定义组合框</a></li>
+        <li><a href="#calendar">日历</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="dd" value="01"&gt;  </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#dd').datebox({
+    required:true
+});    </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承自定义组合框，以下是日期组合框独有的属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>panelWidth（面板宽度）</td>
+            <td>number（数字）</td>
+            <td>下拉日历面板的宽度。</td>
+            <td>180</td>
+        </tr>
+        <tr>
+            <td>panelHeight（面板高度）</td>
+            <td>number（数字）</td>
+            <td>下拉日历面板的高度。</td>
+            <td>auto</td>
+        </tr>
+        <tr>
+            <td>currentText（当前文本）</td>
+            <td>string（字符串）</td>
+            <td>显示在日历左下角用以选择今天日期的按钮上的文本。</td>
+            <td>Today</td>
+        </tr>
+        <tr>
+            <td>closeText（关闭）</td>
+            <td>string（字符串）</td>
+            <td>显示在关闭按钮上的文本。</td>
+
+            <td>Close</td>
+        </tr>
+        <tr>
+            <td>okText（OK按钮文本）</td>
+            <td>string（字符串）</td>
+            <td>显示在OK按钮上的文本。</td>
+            <td>Ok</td>
+        </tr>
+        <tr>
+            <td>disabled（禁用）</td>
+            <td>boolean（布尔型）</td>
+
+            <td>当设置为true时禁用输入框。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>formatter（格式）</td>
+            <td>function（函数）</td>
+            <td>一个格式化日期的函数，该函数的参数是一个被选择的日期并且一个字符串。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>parser（解析器）</td>
+
+            <td>function（函数）</td>
+            <td>一个解析日期的字符串，该函数的参数是一个被选择的日期并且返回一个解析后的日期值。</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onSelect</td>
+            <td>date</td>
+            <td>当用户选择日期时触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+
+    <p>方法继承表单验证，以下是数字验证独有的或者重载表单验证的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>calendar</td>
+            <td>none</td>
+            <td>获取日历对象。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置日期组合框的值。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="datetimebox">
+    <div class="page-header">
+        <h1>日期组合框[datetimebox]</h1>
+
+        <p>继承$.fn.combo.defaults，使用$.fn.datebox.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/datetimebox.html" class="autoheight" width="100%"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#datebox">日期组合框</a></li>
+        <li><a href="#timespinner">时间调节器</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="dt" value="01"&gt;  </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#dt').datetimebox({
+    showSeconds:false
+});     </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承日期组合框，以下是日期时间组合框独有的属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>showSeconds（显示秒）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示秒数信息。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>timeSeparator</td>
+            <td>string（文本型）</td>
+            <td>选项允许用户定义的时间分隔符。这个属性从1.3版本可用。</td>
+            <td>:</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>方法：</h4>
+
+    <p>方法继承日期组合框，以下是重载日期组合框的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>spinner</td>
+            <td>none</td>
+            <td>返回时间调节器对象。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置日期时间组合框的值。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="calendar">
+    <div class="page-header">
+        <h1>日历[calendar]</h1>
+
+        <p>使用$.fn.calendar.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/calendar.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="cc" style="width:180px;height:180px;"&gt;&lt;/div&gt;    </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#cc').calendar({
+    width:600,
+    height:600,
+    current:new Date()
+});     </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>width（宽度）</td>
+            <td>number（数字）</td>
+            <td>日历组件的宽度。</td>
+            <td>180</td>
+
+        </tr>
+        <tr>
+            <td>height（高度）</td>
+            <td>number（数字）</td>
+            <td>日历组件的高度。</td>
+            <td>180</td>
+        </tr>
+        <tr>
+            <td>fit（铺满浏览器）</td>
+            <td>boolean（布尔型）</td>
+            <td>当设置为true时，日历组件的大小将铺满装载它的父容器（浏览器）。</td>
+
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>border（边框）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示边框。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>weeks（星期代码列表）</td>
+            <td>array（数组）</td>
+
+            <td>显示星期几的代码列表。</td>
+            <td>['S','M','T','W','T','F','S']</td>
+        </tr>
+        <tr>
+            <td>months（月份代码列表）</td>
+            <td>array（数组）</td>
+            <td>显示月份的代码列表。</td>
+            <td>['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']</td>
+        </tr>
+        <tr>
+            <td>year（年份）</td>
+
+            <td>number（数字）</td>
+            <td>日历组件的起始年份</td>
+            <td>当前年份(4位数字)</td>
+        </tr>
+        <tr>
+            <td>month（月份）</td>
+            <td>number（数字）</td>
+            <td>日历组件默认显示的月份。</td>
+            <td>当前月份，从1开始。</td>
+        </tr>
+
+        <tr>
+            <td>current(当前日期)</td>
+            <td>Date（日期）</td>
+            <td>当前日期。</td>
+            <td>当前日期。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onSelect</td>
+            <td>date</td>
+            <td>当用户选择日期的时候触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>resize</td>
+            <td>none</td>
+            <td>重置日历的大小。</td>
+        </tr>
+
+        <tr>
+            <td>moveTo</td>
+            <td>date</td>
+            <td>将日历设置到一个指定的日期。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="spinner">
+    <div class="page-header">
+        <h1>调节器[spinner]</h1>
+
+        <p>继承$.fn.validatebox.defaults，使用$.fn.spinner.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/slider.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="ss" value="2"&gt;    </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#ss').spinner({
+    required:true,
+    increment:10
+});  </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承表单验证，以下是调节器的独有属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>width（宽度）</td>
+
+            <td>number（数字）</td>
+            <td>组件的宽度</td>
+            <td>auto</td>
+        </tr>
+        <tr>
+            <td>value（值）</td>
+            <td>string（字符串）</td>
+            <td>初始值。</td>
+            <td></td>
+        </tr>
+        <tr>
+
+            <td>min（最小值）</td>
+            <td>string（字符串）</td>
+            <td>允许的最小值。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>max（最大值）</td>
+            <td>string（字符串）</td>
+            <td>允许的最大值。</td>
+            <td>null</td>
+
+        </tr>
+        <tr>
+            <td>increment（增量）</td>
+            <td>number（数字）</td>
+            <td>当点击调节器按钮时的增量值。</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>editable（可编辑）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义用户是否可以直接输入。</td>
+
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>disabled（禁用）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否禁用输入框。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>spin（调节函数）</td>
+            <td>function(down)</td>
+
+            <td>当用户点击调节按钮时调用的函数。</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onSelect</td>
+            <td>date</td>
+            <td>当用户选择日期的时候触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onSpinUp</td>
+            <td>none</td>
+            <td>当用户点击增加按钮时触发。</td>
+        </tr>
+        <tr>
+            <td>onSpinDown</td>
+            <td>none</td>
+
+            <td>当用户点击减少按钮时触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+
+    <p>方法继承表单验证，以下是调节器独有的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>destroy</td>
+            <td>none</td>
+
+            <td>销毁组件。</td>
+        </tr>
+        <tr>
+            <td>resize</td>
+            <td>width</td>
+            <td>调整组件宽度。</td>
+        </tr>
+        <tr>
+            <td>enable</td>
+            <td>none</td>
+            <td>启用组件。</td>
+
+        </tr>
+        <tr>
+            <td>disable</td>
+            <td>none</td>
+            <td>禁用组件。</td>
+        </tr>
+        <tr>
+            <td>getValue</td>
+            <td>none</td>
+            <td>获取组件的值。</td>
+        </tr>
+
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置组件的值。</td>
+        </tr>
+        <tr>
+            <td>clear</td>
+            <td>none</td>
+            <td>清除组件的值。</td>
+        </tr>
+        </tbody>
+    </table>
+
+</section>
+<section id="numberspinner">
+    <div class="page-header">
+        <h1>调节器[numberspinner]</h1>
+
+        <p>继承$.fn.validatebox.defaults，使用$.fn.spinner.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/numberspinner.html" class="autoheight" width="100%"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#spinner">调节器</a></li>
+        <li><a href="#numberbox">数字验证框</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="ss" min="10" max="100" required="true" style="width:80px;" &gt;    </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#ss').numberspinner({
+    editable:false
+});    </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承调节器和数字验证框。</p>
+    <h4>事件：</h4>
+
+    <p>事件继承调节器。</p>
+    <h4>方法：</h4>
+
+    <p>方法继承调节器，以下是重载调节器的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+
+            <td>设置数字调节器的值。</td>
+        </tr>
+        </tbody>
+    </table>
+
+</section>
+<section id="timespinner">
+    <div class="page-header">
+        <h1>时间调节器[timespinner]</h1>
+
+        <p>继承$.fn.spinner.defaults，使用$.fn.timespinner.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/timespinner.html" class="autoheight" width="100%"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>依赖关系：</h4>
+    <ul>
+        <li><a href="#spinner">调节器</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="ss" required="true" style="width:80px;" &gt;    </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#ss').timespinner({
+    showSeconds:true
+});   </pre>
+    </p>
+
+
+    <h4>属性：</h4>
+
+    <p>属性继承调节器，以下是重载调节器的属性。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>separator（分隔符）</td>
+
+            <td>string（字符串）</td>
+            <td>时分秒直接的分隔符号。</td>
+            <td>:</td>
+        </tr>
+        <tr>
+            <td>showSeconds（显示秒数）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示描述信息。</td>
+            <td>false</td>
+        </tr>
+
+        <tr>
+            <td>highlight（高亮）</td>
+            <td>number（数字）</td>
+            <td>显示高亮背景的时间要素，0=时，1=分，…</td>
+            <td>0</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+
+    <p>事件继承调节器。</p>
+    <h4>方法：</h4>
+
+    <p>方法继承调节器，以下是重载调节器的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置时间调节器的值。</td>
+        </tr>
+        <tr>
+            <td>getHours</td>
+
+            <td>none</td>
+            <td>获取当前小时的值。</td>
+        </tr>
+        <tr>
+            <td>getMinutes</td>
+            <td>none</td>
+            <td>获取当前分钟的值。</td>
+        </tr>
+        <tr>
+            <td>getSeconds</td>
+            <td>none</td>
+
+            <td>获取当前秒钟的值。</td>
+        </tr>
+        </tbody>
+    </table>
+
+</section>
+</div>
+</div>
+</div>
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="bs-docs-social">
+        <div class="container">
+            <ul class="bs-docs-social-buttons">
+                <li><a href="http://weibo.com/atzihan">新浪微博</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=62">联系方式</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=75">留言</a></li>
+                <li><a href="http://www.zi-han.net/?feed=rss2">RSS</a></li>
+                <li><a target="_blank"
+                       href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=i@zi-han.net">E-Mail</a>
+                </li>
+                <li>疏漏之处，请不吝斧正！</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="docs/assets/js/jquery.js"></script>
+<script src="docs/assets/js/google-code-prettify/prettify.js"></script>
+<script src="docs/assets/js/bootstrap-modal.js"></script>
+<script src="docs/assets/js/bootstrap-scrollspy.js"></script>
+<script src="docs/assets/js/bootstrap-tooltip.js"></script>
+<script src="docs/assets/js/bootstrap-popover.js"></script>
+<script src="docs/assets/js/bootstrap-button.js"></script>
+<script src="docs/assets/js/bootstrap-carousel.js"></script>
+<script src="docs/assets/js/bootstrap-affix.js"></script>
+<script src="docs/assets/js/application.js"></script>
+<script src="docs/docs.js"></script>
+</body>
+</html>

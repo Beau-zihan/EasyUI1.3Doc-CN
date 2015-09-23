@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery EasyUI 1.3 中文文档--窗口[window]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网上关于jQuery EasyUI最新版的中文文档比较少，特花了一些时间制作了这篇中文文档，贡献出来，希望对想学习和正在用的同学有帮助！">
+    <meta name="keywords" content="jQuery EasyUI 1.3中文文档,jQuery EasyUI 1.3中文api,jQuery EasyUI 1.3在线文档，easyui window">
+    <meta name="author" content="http://www.zi-han.net">
+    <!-- Le styles -->
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/assets/css/docs.css" rel="stylesheet">
+    <link href="docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script>var _hmt = _hmt||[];(function(){var hm=document.createElement("script");hm.src ="//hm.baidu.com/hm.js?8867273989ac579c211d99bc3e0d00dd";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="http://www.zi-han.net">作者博客</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="">
+                        <a href="base.html" rel="tooltip" data-placement="bottom" data-original-title="Base">基本</a>
+                    </li>
+                    <li class="">
+                        <a href="layout.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Layout">布局管理器</a>
+                    </li>
+                    <li class="">
+                        <a href="menu&button.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Menu and Button">菜单和按钮</a>
+                    </li>
+                    <li class="">
+                        <a href="form.html" rel="tooltip" data-placement="bottom" data-original-title="Form">表单</a>
+                    </li>
+                    <li class="active">
+                        <a href="window.html" rel="tooltip" data-placement="bottom" data-original-title="Window">窗口</a>
+                    </li>
+                    <li class="">
+                        <a href="datagrid&tree.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="DataGrid and Tree">数据表格和树形菜单</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>窗口(Window)</h1>
+    </div>
+</header>
+
+
+<div class="container">
+
+<!-- Docs nav
+================================================== -->
+<div class="row">
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav">
+        <li><a href="#window"><i class="icon-chevron-right"></i>窗口</a></li>
+        <li><a href="#dialog"><i class="icon-chevron-right"></i>对话窗口</a></li>
+        <li><a href="#messager"><i class="icon-chevron-right"></i>消息窗口</a></li>
+    </ul>
+</div>
+<div class="span9">
+
+<!-- Button Groups
+================================================== -->
+<section id="window">
+    <div class="page-header">
+        <h1>窗口[window]</h1>
+
+        <p>继承$.fn.panel.defaults，使用$.fn.window.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/window.html" class="autoheight" width="100%" height="410"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>依赖关系</h4>
+    <ul>
+        <li>一般拖动</li>
+        <li>缩放</li>
+        <li>控制面板</li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="win" iconCls="icon-save" title="My Window"&gt;
+    Window Content
+&lt;/div&gt;
+</pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#win').window({
+    width:600,
+    height:400,
+    modal:true
+});
+$('#win').window('close');  //关闭窗口
+</pre>
+    </p>
+
+    <h4>属性：</h4>
+
+    <p>继承控制面板，以下是窗口独有的或者重载控制面板的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>title（标题）</td>
+            <td>string（字符串）</td>
+            <td>窗口的标题。</td>
+            <td>New Window</td>
+        </tr>
+        <tr>
+            <td>collapsible（可折叠）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示折叠按钮。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>minimizable（最小化）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示最小化按钮。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>maximizable（最大化）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示最大化按钮。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>closable（关闭）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示关闭按钮。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>closed（已关闭）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否在初始化组件时关闭（隐藏）窗口</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>zIndex（堆叠顺序）</td>
+            <td>number（数字）</td>
+            <td>窗口的堆叠顺序，从第一个窗口的zIndex值开始递增。</td>
+            <td>9000</td>
+        </tr>
+        <tr>
+            <td>draggable（可拖放）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义窗口是否可以被拖放。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>resizable（可缩放）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义窗口是否可以被缩放。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>shadow（阴影）</td>
+            <td>boolean（布尔型）</td>
+            <td>如果设置为true，显示窗口的时候将显示阴影。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>inline（行内显示）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义如何布局窗口，如果设置为true，窗口将显示在它的父容器中，否则将显示在所有元素的上面。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>modal（遮罩）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义窗口是否带有遮罩效果。</td>
+            <td>true</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+
+    <p>事件继承控制面板。</p>
+    <h4>方法：</h4>
+
+    <p>方法继承控制面板，以下是窗口独有的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>window</td>
+            <td>none</td>
+            <td>返回窗口对象。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="dialog">
+    <div class="page-header">
+        <h1>窗口[dialog]</h1>
+
+        <p>继承$.fn.window.defaults，使用$.fn.dialog.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/dialog.html" class="autoheight" width="100%" height="410"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>依赖关系</h4>
+    <ul>
+        <li>窗口</li>
+        <li>链接按钮</li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="dd" title="My Dialog" style="width:400px;height:200px;"&gt;
+    Dialog Content.
+&lt;/div&gt;
+</pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#dd').dialog({
+    modal:true
+});
+</pre>
+    </p>
+
+    <h4>属性：</h4>
+
+    <p>继承控制面板，以下是窗口独有的或者重载控制面板的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>title（标题）</td>
+            <td>string（字符串）</td>
+            <td>对话标题。</td>
+            <td>New Dialog</td>
+        </tr>
+        <tr>
+            <td>collapsible（可折叠）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示折叠按钮。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>minimizable（最小化）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示最小化按钮。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>maximizable（最大化）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示最大化按钮。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>resizable（可缩放）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义对话窗口是否可以被缩放。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>toolbar（工具栏）</td>
+            <td>array（数组）</td>
+            <td>对话窗口顶部的工具栏，每个工具的属性都跟链接按钮的属性一样。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>buttons（按钮）</td>
+            <td>array（数组）</td>
+            <td>对话窗口底部的按钮，每个按钮的属性都跟链接按钮一样。</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+
+    <p>事件继承窗口。</p>
+    <h4>方法：</h4>
+
+    <p>方法继承窗口，以下是对话窗口独有的方法。</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>dialog</td>
+            <td>none</td>
+            <td>返回对话窗口对象。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="messager">
+    <div class="page-header">
+        <h1>消息窗口[messager]</h1>
+
+        <p>使用$.messager.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/messager.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>依赖关系</h4>
+    <ul>
+        <li>窗口</li>
+        <li>链接按钮</li>
+        <li>进度条</li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+$.messager.alert('Warning','The warning message');
+$.messager.confirm('Confirm','Are you sure you want to delete record?',function(r){
+    if (r){
+        alert('ok');
+    }
+});
+</pre>
+    </p>
+
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>ok（确认）</td>
+            <td>string（字符串）</td>
+            <td>显示在“确认”按钮上的文本。</td>
+            <td>Ok</td>
+        </tr>
+        <tr>
+            <td>cancel（取消）</td>
+            <td>string（字符串）</td>
+            <td>显示在“取消”按钮上的文本。</td>
+            <td>Cancel</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.messager.show</td>
+            <td>options</td>
+            <td>在屏幕的右下方显示一个消息窗口 ，options参数是一个可配置的对象:<br>
+                showType：定义如何显示消息窗口，可选值: null,slide,fade,show，默认为slide。<br>
+                showSpeed：定义窗口显示的时间，单位毫秒，默认为 600。<br>
+                width：定义消息窗口的宽度，默认为250。<br>
+                height：定义消息窗口的高度，默认为100。<br>
+                msg：显示在消息窗口的文本。<br>
+                title：显示在窗口头部的标题。<br>
+                timeout：如果定义为0，消息窗口将不会关闭直到用户点击关闭为止。如果定义为非0，消息窗口在超时后将自动关闭。
+            </td>
+        </tr>
+        <tr>
+            <td>$.messager.alert</td>
+            <td>title, msg, icon, fn</td>
+            <td>显示警告窗口。参数如下:<br>
+                title：显示在窗口头部的标题文本。<br>
+                msg：显示在窗口中的文本。<br>
+                icon：显示的图片，可选值：error,question,info,warning。<br>
+                fn：当窗口关闭时触发的回调函数。
+            </td>
+        </tr>
+        <tr>
+            <td>$.messager.confirm</td>
+            <td>title, msg, fn</td>
+            <td>显示一个带有确认和取消按钮的确认信息窗口。参数如下：<br>
+                title：显示在窗口头部的文本。<br>
+                msg：显示在窗口中的文本。<br>
+                fn(b)：回调函数，当用户点击确认按钮时，传递一个true值给回调函数，否则传递一个false值。
+            </td>
+        </tr>
+        <tr>
+            <td>$.messager.prompt</td>
+            <td>title, msg, fn</td>
+            <td>显示一个带有确认和取消的输入信息窗口。 参数如下：<br>
+                title：显示在窗口头部的标题文本。<br>
+                msg：显示在窗口中的信息<br>
+                fn(val)：接受用户输入作为参数的回调函数。
+            </td>
+        </tr>
+        <tr>
+            <td>$.messager.progress</td>
+            <td>options or method</td>
+            <td>
+                显示一个带进度条信息的窗口。<br>
+                属性定义如下：<br>
+                title：显示在面板头部的标题文本，默认为''。<br>
+                msg：显示在主窗体的文本，默认为''。<br>
+                text：显示在进度条中的信息默认为undefined。<br>
+                interval：每次进度增加所耗费的时间，单位为毫秒，默认为300.<br>
+                <br>
+                方法定义如下：<br>
+                bar：获取进度条对象。<br>
+                close：关闭进程窗口。<br>
+                <h5>示例代码</h5>
+                显示进程消息窗口。 <br>
+                <pre class="prettyprint linenums">	$.messager.progress(); </pre>
+                使用如下代码关闭窗口。 <br>
+                <pre class="prettyprint linenums">	$.messager.progress('close');</pre>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</div>
+</div>
+</div>
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="bs-docs-social">
+        <div class="container">
+            <ul class="bs-docs-social-buttons">
+                <li><a href="http://weibo.com/atzihan">新浪微博</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=62">联系方式</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=75">留言</a></li>
+                <li><a href="http://www.zi-han.net/?feed=rss2">RSS</a></li>
+                <li><a target="_blank"
+                       href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=i@zi-han.net">E-Mail</a>
+                </li>
+                <li>疏漏之处，请不吝斧正！</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="docs/assets/js/jquery.js"></script>
+<script src="docs/assets/js/google-code-prettify/prettify.js"></script>
+<script src="docs/assets/js/bootstrap-modal.js"></script>
+<script src="docs/assets/js/bootstrap-scrollspy.js"></script>
+<script src="docs/assets/js/bootstrap-tooltip.js"></script>
+<script src="docs/assets/js/bootstrap-popover.js"></script>
+<script src="docs/assets/js/bootstrap-button.js"></script>
+<script src="docs/assets/js/bootstrap-carousel.js"></script>
+<script src="docs/assets/js/bootstrap-affix.js"></script>
+<script src="docs/assets/js/application.js"></script>
+<script src="docs/docs.js"></script>
+</body>
+</html>

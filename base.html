@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery EasyUI 1.3 中文文档--基本[base]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网上关于jQuery EasyUI最新版的中文文档比较少，特花了一些时间制作了这篇中文文档，贡献出来，希望对想学习和正在用的同学有帮助！">
+    <meta name="keywords" content="jQuery EasyUI 1.3中文文档,jQuery EasyUI 1.3中文api,jQuery EasyUI 1.3在线文档，easyui base">
+    <meta name="author" content="http://www.zi-han.net">
+    <!-- Le styles -->
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/assets/css/docs.css" rel="stylesheet">
+    <link href="docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script>var _hmt = _hmt||[];(function(){var hm=document.createElement("script");hm.src ="//hm.baidu.com/hm.js?8867273989ac579c211d99bc3e0d00dd";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="http://www.zi-han.net">作者博客</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="active">
+                        <a href="base.html" rel="tooltip" data-placement="bottom" data-original-title="Base">基本</a>
+                    </li>
+                    <li class="">
+                        <a href="layout.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Layout">布局管理器</a>
+                    </li>
+                    <li class="">
+                        <a href="menu&button.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="Menu and Button">菜单和按钮</a>
+                    </li>
+                    <li class="">
+                        <a href="form.html" rel="tooltip" data-placement="bottom" data-original-title="Form">表单</a>
+                    </li>
+                    <li class="">
+                        <a href="window.html" rel="tooltip" data-placement="bottom" data-original-title="Window">窗口</a>
+                    </li>
+                    <li class="">
+                        <a href="datagrid&tree.html" rel="tooltip" data-placement="bottom"
+                           data-original-title="DataGrid and Tree">数据表格和树形菜单</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>基本(Base)</h1>
+    </div>
+</header>
+
+
+<div class="container">
+
+<!-- Docs nav
+================================================== -->
+<div class="row">
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav">
+        <li><a href="#parser"><i class="icon-chevron-right"></i>语法解析</a></li>
+        <li><a href="#easyloader"><i class="icon-chevron-right"></i>简单载入器</a></li>
+        <li><a href="#draggable"><i class="icon-chevron-right"></i>一般拖动</a></li>
+        <li><a href="#droppable"><i class="icon-chevron-right"></i>拖动至容器</a></li>
+        <li><a href="#resizable"><i class="icon-chevron-right"></i>缩放</a></li>
+        <li><a href="#pagination"><i class="icon-chevron-right"></i>分页</a></li>
+        <li><a href="#searchbox"><i class="icon-chevron-right"></i>搜索框</a></li>
+        <li><a href="#progressbar"><i class="icon-chevron-right"></i>进度条</a></li>
+    </ul>
+</div>
+<div class="span9">
+
+<!-- Button Groups
+================================================== -->
+<section id="parser">
+    <div class="page-header">
+        <h1>语法解析[Parser]</h1>
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+$.parser.parse();       // 解析所有的页面
+$.parser.parse('#cc');  // 解析特定的代码
+</pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.parser.auto</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否自动解析easyui组件。</td>
+            <td>true</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.parser.onComplete</td>
+            <td>context</td>
+            <td>当语法解析结束时触发事件。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>$.parser.parse</td>
+            <td>context</td>
+            <td>解析easyui组件。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="easyloader">
+    <div class="page-header">
+        <h1>简单载入器[Easyloader]</h1>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/easyloader.html" width="100%" height="300" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+easyloader.base = '../';    // 设置easyui根目录
+easyloader.load('messager', function(){        // 载入特定模块
+    $.messager.alert('Title', 'load ok');
+});
+</pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>modules（模块）</td>
+            <td>object（对象）</td>
+            <td>预定义模块。</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>locales（多语言）</td>
+            <td>object（预定义对象）</td>
+            <td>预定义多语言。</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>base（目录）</td>
+            <td>string（字符串）</td>
+            <td>easyui根目录,必须以'/'结尾。</td>
+            <td>easyui根目录将会被自动设置<br/>为相对于easyload.js的位置。</td>
+        </tr>
+        <tr>
+            <td>theme（主题名称）</td>
+            <td>string（字符串）</td>
+            <td>'themes'目录中的主题的名称。</td>
+            <td>default</td>
+        </tr>
+        <tr>
+            <td>css（层叠样式表）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否在加载模块的同时加载css文件。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>locale（自定义语言）</td>
+            <td>string（字符串）</td>
+            <td>语言名称。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>timeout（超时）</td>
+            <td>number（数字）</td>
+            <td>超时单位为毫秒，出现超时就触发。</td>
+            <td>2000</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>预定义语言：</h4>
+
+    <p>
+        <code>af</code>
+        <code>bg</code>
+        <code>ca</code>
+        <code>cs</code>
+        <code>da</code>
+        <code>de(德语)</code>
+        <code>en(英语)</code>
+        <code>fr(法语)</code>
+        <code>nl</code>
+        <code>zh_CN(简体中文)</code>
+        <code>zh_TW(繁体中文)</code>
+    </p>
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onProgress</td>
+            <td>name</td>
+            <td>当一个模块成功载入时触发。</td>
+        </tr>
+        <tr>
+            <td>onLoad</td>
+            <td>name</td>
+            <td>当一个模块及其所有依赖关系（可以理解为载入该模块所需要的其他模块、属性、方法等）载入时触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>load</td>
+            <td>module, callback</td>
+            <td>载入特定的模块。当载入成功时将调用回调函数。
+                <br/>有效的模块参数类型如下：
+                <br/>单一的模块名称
+                <br/>一个存储有模块名称的数组
+                <br/>一个以'.css'结尾的样式文件
+                <br/>一个以'.js'结尾的js文件
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="draggable">
+    <div class="page-header">
+        <h1>一般拖动[draggable]</h1>
+
+        <p>使用$.fn.draggable.defaults重载默认值。</p>
+    </div>
+
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/draggable.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="dd" style="width:100px;height:100px;"&gt;
+    &lt;div id="title" style="background:#ccc;"&gt;title&lt;/div&gt;
+&lt;/div&gt; </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#dd').draggable({
+    handle:'#title'
+});   </pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>proxy（替代）</td>
+            <td>string,function</td>
+            <td>拖动时的替代元素，当被设置为'clone'时，将使用该元素的一个复制元素<br/>来作为替代元素。如果指定了一个函数, 它将返回一个jquery对象。</td>
+
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>revert（复原）</td>
+            <td>boolean（布尔型）</td>
+            <td>如果设置为true, 当拖动停止时元素将返回它的初始位置。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>cursor（指针）</td>
+            <td>string（字符串）</td>
+            <td>拖动时的CSS指针。</td>
+            <td>move</td>
+        </tr>
+        <tr>
+            <td>deltaX（水平增量，X轴）</td>
+            <td>number（数字）</td>
+            <td>被拖动元素对应于当前指针的水平位置。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>deltaY（垂直增量，y轴）</td>
+            <td>number（数字）</td>
+            <td>被拖动元素对应于当前指针的垂直位置。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>handle（句柄）</td>
+            <td>selector（选择器）</td>
+            <td>开始拖动的句柄。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>disabled（停止拖动）</td>
+            <td>boolean（布尔型）</td>
+            <td>当设置为true时停止拖动。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>edge（边缘）</td>
+            <td>number（数字）</td>
+            <td>可以在其中拖动的容器的宽度</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>axis（拖动轴）</td>
+            <td>string（字符串）</td>
+            <td>可用值为'v'或者'h',当设置为空时，元素可以同时在水平和垂直方法拖动。</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onBeforeDrag</td>
+            <td>e</td>
+            <td>在拖动之前触发，返回false将取消拖动。</td>
+        </tr>
+        <tr>
+            <td>onStartDrag</td>
+            <td>e</td>
+            <td>当目标对象开始被拖动时触发。</td>
+        </tr>
+        <tr>
+            <td>onDrag</td>
+            <td>e</td>
+            <td>在拖动过程中触发，当不能再拖动时返回false。</td>
+        </tr>
+        <tr>
+            <td>onStopDrag</td>
+            <td>e</td>
+            <td>当拖动停止时触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回属性对象。</td>
+        </tr>
+        <tr>
+            <td>proxy</td>
+            <td>none</td>
+            <td>如果替代元素被设置，返回将被用于拖动的替代元素。</td>
+        </tr>
+        <tr>
+            <td>enable</td>
+            <td>none</td>
+            <td>允许拖动。</td>
+        </tr>
+        <tr>
+            <td>disable</td>
+            <td>none</td>
+            <td>禁止拖动。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="droppable">
+    <div class="page-header">
+        <h1>拖动至容器[droppable]</h1>
+
+        <p>使用$.fn.draggable.defaults重载默认值。</p>
+    </div>
+
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/droppable1.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+                <span class="btn-group" data-toggle="buttons-radio">
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/droppable1.html"><i
+                            class="icon-list"></i> 示例一</a>
+                    <a class="btn otherDemo" href="javascript:;" url="../jquery-easyui-1.3.1/demo/droppable2.html"><i
+                            class="icon-list"></i> 示例二</a>
+                </span>
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="dd" style="width:100px;height:100px;"&gt;&lt;/div&gt;   </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#dd').droppable({
+    accept:'#d1,#d3'
+});   </pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>accept</td>
+            <td>selector</td>
+            <td>决定哪个可拖动元素将会被接收。</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onDragEnter</td>
+            <td>e,source</td>
+            <td>当可拖动元素被拖入目标容器的时候触发，参数source是被拖动的DOM元素。</td>
+        </tr>
+        <tr>
+            <td>onDragOver</td>
+            <td>e,source</td>
+            <td>当可拖动元素被拖至某个元素之上的时候触发，参数source是被拖动的DOM元素。</td>
+        </tr>
+        <tr>
+            <td>onDragLeave</td>
+            <td>e,source</td>
+            <td>当可拖动元素被拖离目标容器的时候触发，参数source是被拖动的DOM元素。</td>
+        </tr>
+        <tr>
+            <td>onDrop</td>
+            <td>e,source</td>
+            <td>当可拖动元素被拖入目标容器并放置的时候触发，参数source是被拖动的DOM元素。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="resizable">
+    <div class="page-header">
+        <h1>缩放[resizable]</h1>
+
+        <p>使用$.fn.resizable.defaults重载默认值</p>
+    </div>
+
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/resizable.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+
+    </div>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="rr" style="width:100px;height:100px;border:1px solid #ccc;"&gt;&lt;/div&gt;</pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#rr').resizable({
+    maxWidth:800,
+    maxHeight:600
+});  </pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>disabled（禁止缩放）</td>
+            <td>boolean（布尔型）</td>
+            <td>如果设置为true将禁止缩放。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>handles（句柄）</td>
+            <td>string（字符串）</td>
+            <td>说明缩放的方向，'n'表示向上（北）,<br/>'e'表示向右（东）等。</td>
+            <td>n, e, s, w, ne, se, sw, nw, all</td>
+        </tr>
+        <tr>
+            <td>minWidth（最小宽度）</td>
+            <td>number（数字）</td>
+            <td>缩放时所允许的最小宽度。</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>minHeight（最小高度）</td>
+            <td>number（数字）</td>
+            <td>缩放时所允许的最小高度。</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>maxWidth（最大宽度）</td>
+            <td>number（数字）</td>
+            <td>缩放时所允许的最大宽度。</td>
+            <td>10000</td>
+        </tr>
+        <tr>
+            <td>maxHeight</td>
+            <td>number（数字）</td>
+            <td>缩放时所允许的最大高度。</td>
+            <td>10000</td>
+        </tr>
+        <tr>
+            <td>edge（边界）</td>
+            <td>number（数字）</td>
+            <td>将被缩放的边框的边界。</td>
+            <td>5</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onStartResize</td>
+            <td>e</td>
+            <td>当开始缩放时触发。</td>
+        </tr>
+        <tr>
+            <td>onResize</td>
+            <td>e</td>
+            <td>在缩放过程中触发，当返回false时, DOM元素将不再缩放。</td>
+        </tr>
+        <tr>
+            <td>onStopResize</td>
+            <td>e</td>
+            <td>当缩放停止是触发。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="pagination">
+    <div class="page-header">
+        <h1>分页[pagination]</h1>
+
+        <p>使用$.fn.pagination.defaults重载默认值。</p>
+    </div>
+
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/pagination.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>依赖关系</h4>
+    <ul>
+        <li><a href="menu&button.html#linkbutton">链接按钮</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p><pre class="prettyprint linenums">
+&lt;div id="pp" style="background:#efefef;border:1px solid #ccc;"&gt;&lt;/div&gt;  </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#pp').pagination({
+    total:2000,
+    pageSize:10
+});  </pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>total（总数）</td>
+            <td>number（数字）</td>
+            <td>总记录数，当创建分页时必须设置。</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>pageSize（每页记录数）</td>
+            <td>number（数字）</td>
+            <td>每页显示的记录数。</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>pageNumber（当前页码）</td>
+            <td>number（数字）</td>
+            <td>当分页创建完毕时显示当前页码。</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>pageList（可选择的每页记录数）</td>
+            <td>array（数组）</td>
+            <td>用户能够改变每页显示的记录数。</td>
+            <td>[10,20,30,50]</td>
+        </tr>
+        <tr>
+            <td>loading（是否正在载入）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义数据是否正在载入。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>buttons（按钮）</td>
+            <td>array（数组）</td>
+            <td>自定义按钮，每个按钮包含2个属性:<br>
+                iconCls： 显示背景图片的CSS类<br>
+                handler： 当按钮被点击时调用的一个句柄函数
+            </td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>showPageList（显示可选择的每页记录数）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示可选择的每页记录数。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>showRefresh（显示刷新）</td>
+            <td>boolean（布尔型）</td>
+            <td>定义是否显示刷新按钮。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>beforePageText（输入框之前的文本）</td>
+            <td>string（字符串）</td>
+            <td>在输入框之前显示的符号。</td>
+            <td>Page</td>
+        </tr>
+        <tr>
+            <td>afterPageText（输入框之后的文本）</td>
+            <td>string（字符串）</td>
+            <td>在输入框之后显示的符号。</td>
+            <td>of {pages}</td>
+        </tr>
+        <tr>
+            <td>displayMsg（显示信息）</td>
+            <td>string（字符串）</td>
+            <td>在插件右上方显示分页信息。</td>
+            <td>Displaying {from} to {to} of <br>{total} items</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onSelectPage</td>
+            <td>pageNumber, pageSize</td>
+            <td>当用户进行翻页时触发，回调函数包含2个参数:<br>
+                pageNumber： 下一页的页码<br>
+                pageSize： 下一页的显示记录数
+            </td>
+        </tr>
+        <tr>
+            <td>onBeforeRefresh</td>
+            <td>pageNumber, pageSize</td>
+            <td>刷新之前触发, 返回false将取消刷新。</td>
+        </tr>
+        <tr>
+            <td>onRefresh</td>
+            <td>pageNumber, pageSize</td>
+            <td>刷新之后触发。</td>
+        </tr>
+        <tr>
+            <td>onChangePageSize</td>
+            <td>pageSize</td>
+            <td>当用户修改每页显示记录数时触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回分页属性对象。</td>
+        </tr>
+        <tr>
+            <td>loading</td>
+            <td>none</td>
+            <td>提醒分页插件正在载入。</td>
+        </tr>
+        <tr>
+            <td>loaded</td>
+            <td>none</td>
+            <td>提醒分页插件已经载入。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="searchbox">
+    <div class="page-header">
+        <h1>搜索框[searchbox]</h1>
+
+        <p>使用$.fn.searchbox.defaults重载默认值。</p>
+    </div>
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/searchbox.html" class="autoheight" width="100%" frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>依赖关系</h4>
+    <ul>
+        <li><a href="menu&button.html#menubutton">菜单按钮</a></li>
+    </ul>
+    <h4>使用方法：</h4>
+
+    <p>1. 使用标签创建。对input标签引用'easyui-searchbox'类。</p>
+
+    <p><pre class="prettyprint linenums">
+&lt;script type="text/javascript"&gt;
+    function qq(value,name){
+        alert(value+":"+name)
+    }
+&lt;/script&gt;
+&lt;input id="ss" class="easyui-searchbox" searcher="qq" prompt="Please Input Value" menu="#mm" style="width:300px">&lt;/input&gt;
+&lt;div id="mm" style="width:120px"&gt;
+&lt;div name="all" iconCls="icon-ok">All News&lt;/div&gt;
+  &lt;div name="sports">Sports News&lt;/div&gt;
+&lt;/div&gt;  </pre>
+    </p>
+    <p><pre class="prettyprint linenums">
+$('#pp').pagination({
+    total:2000,
+    pageSize:10
+});  </pre>
+    </p>
+    <p>2. 使用脚本创建。</p>
+
+    <p><pre class="prettyprint linenums">
+&lt;input id="ss">&lt;/input&gt;
+&lt;div id="mm" style="width:120px"&gt;
+    &lt;div name="all" iconCls="icon-ok"&gt;All News&lt;/div&gt;
+    &lt;div name="sports"&gt;Sports News&lt;/div&gt;
+&lt;/div&gt;
+$('#ss').searchbox({
+    width:200,
+    searcher:function(value,name){
+        alert(value + "," + name)
+    },
+    menu:'#mm',
+    prompt:'Please Input Value'
+});</pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>width（宽度）</td>
+            <td>number（数字）</td>
+            <td>设置组建的宽度。</td>
+            <td>auto</td>
+        </tr>
+        <tr>
+            <td>propmt（提醒）</td>
+            <td>string（字符串）</td>
+            <td>显示在搜索框的提醒信息。</td>
+            <td>''</td>
+        </tr>
+        <tr>
+            <td>value（值）</td>
+            <td>string（字符串）</td>
+            <td>搜索框的默认值。</td>
+            <td>''</td>
+        </tr>
+        <tr>
+            <td>menu（菜单）</td>
+            <td>selector（选择器）</td>
+            <td>搜索类型下拉菜单。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>searcher（搜索器）</td>
+            <td>function(value,name)</td>
+            <td>当用户点击搜索按钮或者按下ENTER键的时候搜索函数将被调用。</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回搜索框属性对象。</td>
+        </tr>
+        <tr>
+            <td>menu</td>
+            <td>none</td>
+            <td>返回搜索类型菜单对象。</td>
+        </tr>
+        <tr>
+            <td>textbox</td>
+            <td>none</td>
+            <td>返回文本框对象。</td>
+        </tr>
+        <tr>
+            <td>getValue</td>
+            <td>none</td>
+            <td>返回当前搜索关键字。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置新的搜索关键字。</td>
+        </tr>
+        <tr>
+            <td>getName</td>
+            <td>none</td>
+            <td>返回当前搜索类型。</td>
+        </tr>
+        <tr>
+            <td>destroy</td>
+            <td>none</td>
+            <td>清除搜索框组件</td>
+        </tr>
+        <tr>
+            <td>resize</td>
+            <td>width</td>
+            <td>重置搜索框组建的宽度。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section id="progressbar">
+    <div class="page-header">
+        <h1>进度条[progressbar]</h1>
+
+        <p>使用$.fn.progressbar.defaults重载默认值。</p>
+    </div>
+
+
+    <div class="bs-docs-example">
+        <iframe src="jquery-easyui-1.3.1/demo/progressbar.html" class="autoheight" width="100%"
+                frameborder="0"></iframe>
+    </div>
+    <div class="viewbtnbox">
+        <button type="button" class="btn btn-warning viewsource" data-toggle="modal" data-target="#viewSource"><i
+                class="icon-search icon-white"></i> 查看源代码
+        </button>
+    </div>
+    <h4>使用方法：</h4>
+    <h5>创建进度条： </h5>
+
+    <p>进度条组件可以通过html标签或脚本两种方法创建。使用html标签创建更容易，只需要对
+
+    <div>标签引用'easyui-progressbar'类。
+    </p>
+    <p><pre class="prettyprint linenums">
+&lt;div id="p" class="easyui-progressbar" style="width:400px;"&gt;&lt;/div&gt;  </pre>
+    </p>
+    <h5>获取/设置进度值</h5>
+
+    <p>为进度条获取当前进度值并且设置一个新的进度值。</p>
+
+    <p><pre class="prettyprint linenums">
+var value = $('#p').progressbar('getValue');
+if (value < 100){
+    value += Math.floor(Math.random() * 10);
+    $('#p').progressbar('setValue', value);
+}</pre>
+    </p>
+    <h4>属性：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>width（宽度）</td>
+            <td>string（字符串）</td>
+            <td>设置进度条的宽度。</td>
+            <td>auto</td>
+        </tr>
+        <tr>
+            <td>value（值）</td>
+            <td>number（数字）</td>
+            <td>当前进度，百分比数值。</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>text（文本）</td>
+            <td>string（字符串）</td>
+            <td>显示在组件中的文本模板。</td>
+            <td>{value}%</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>事件：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>onChange</td>
+            <td>newValue,oldValue</td>
+            <td>当进度发生改变时触发。</td>
+        </tr>
+        </tbody>
+    </table>
+    <h4>方法：</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>参数</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>options</td>
+            <td>none</td>
+            <td>返回进度条属性对象。</td>
+        </tr>
+        <tr>
+            <td>resize</td>
+            <td>width</td>
+            <td>重置进度条。</td>
+        </tr>
+        <tr>
+            <td>getValue</td>
+            <td>none</td>
+            <td>返回当前进度值。</td>
+        </tr>
+        <tr>
+            <td>setValue</td>
+            <td>value</td>
+            <td>设置一个新的进度值。</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</div>
+</div>
+</div>
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="bs-docs-social">
+        <div class="container">
+            <ul class="bs-docs-social-buttons">
+                <li><a href="http://weibo.com/atzihan">新浪微博</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=62">联系方式</a></li>
+                <li><a href="http://www.zi-han.net/?page_id=75">留言</a></li>
+                <li><a href="http://www.zi-han.net/?feed=rss2">RSS</a></li>
+                <li><a target="_blank"
+                       href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=i@zi-han.net">E-Mail</a>
+                </li>
+                <li>疏漏之处，请不吝斧正！</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="docs/assets/js/jquery.js"></script>
+<script src="docs/assets/js/google-code-prettify/prettify.js"></script>
+<script src="docs/assets/js/bootstrap-modal.js"></script>
+<script src="docs/assets/js/bootstrap-scrollspy.js"></script>
+<script src="docs/assets/js/bootstrap-tooltip.js"></script>
+<script src="docs/assets/js/bootstrap-popover.js"></script>
+<script src="docs/assets/js/bootstrap-button.js"></script>
+<script src="docs/assets/js/bootstrap-carousel.js"></script>
+<script src="docs/assets/js/bootstrap-affix.js"></script>
+<script src="docs/assets/js/application.js"></script>
+<script src="docs/docs.js"></script>
+</body>
+</html>
